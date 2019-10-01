@@ -1,0 +1,333 @@
+<mxGraphModel>
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="feature" parent="0"/>
+    <root label="AgroApp" type="root" id="1">
+      <mxCell style="strokeWidth=3" parent="feature" vertex="1">
+        <mxGeometry x="604" y="20" width="161" height="35" as="geometry"/>
+      </mxCell>
+    </root>
+    <abstract label="Modulos" type="abstract" id="3">
+      <mxCell style="strokeWidth=2" parent="feature" vertex="1">
+        <mxGeometry x="300" y="170" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </abstract>
+    <abstract label="Inicio de Sesión" type="abstract" id="8">
+      <mxCell style="strokeWidth=2" parent="feature" vertex="1">
+        <mxGeometry x="793.5" y="160" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </abstract>
+    <abstract label="Control" type="abstract" id="9">
+      <mxCell style="strokeWidth=2" parent="feature" vertex="1">
+        <mxGeometry x="533" y="170" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </abstract>
+    <rel_abstract_root type="relation" relType="mandatory" id="12">
+      <mxCell parent="feature" source="3" target="1" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_abstract_root>
+    <rel_abstract_root type="relation" relType="mandatory" id="14">
+      <mxCell parent="feature" source="8" target="1" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_abstract_root>
+    <rel_abstract_root type="relation" relType="mandatory" id="19">
+      <mxCell parent="feature" source="9" target="1" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_abstract_root>
+    <concrete label="Autenticación" type="concrete" selected="false" id="23">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="950" y="234" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Social" type="concrete" selected="false" id="24">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="1133.5" y="316" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <bundle label="bundle" type="bundle" bundleType="OR" lowRange="1" highRange="1" id="25">
+      <mxCell style="shape=ellipse" parent="feature" vertex="1">
+        <mxGeometry x="1055.5" y="285" width="35" height="35" as="geometry"/>
+      </mxCell>
+    </bundle>
+    <concrete label="Básico" type="concrete" selected="false" id="26">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="973" y="345" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_bundle type="relation" id="29">
+      <mxCell parent="feature" source="26" target="25" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_bundle>
+    <rel_concrete_bundle type="relation" id="30">
+      <mxCell parent="feature" source="24" target="25" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_bundle>
+    <bundle label="bundle" type="bundle" bundleType="OR" lowRange="1" highRange="1" id="45">
+      <mxCell style="shape=ellipse" parent="feature" vertex="1">
+        <mxGeometry x="254" y="506.5" width="35" height="35" as="geometry"/>
+      </mxCell>
+    </bundle>
+    <concrete label="Lechuga" type="concrete" selected="false" id="48">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="106" y="552" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Tomate" type="concrete" selected="false" id="49">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="329" y="542" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_bundle type="relation" id="50">
+      <mxCell parent="feature" source="49" target="45" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_bundle>
+    <rel_concrete_bundle type="relation" id="51">
+      <mxCell parent="feature" source="48" target="45" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_bundle>
+    <concrete label="Fresas" type="concrete" selected="false" id="53">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="216" y="612" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_bundle type="relation" id="54">
+      <mxCell parent="feature" source="53" target="45" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_bundle>
+    <concrete label="Reportes" type="concrete" selected="false" id="73">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="500" y="448" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="DB Management" type="concrete" selected="false" id="81">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="1050" y="174" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_root type="relation" relType="mandatory" id="82">
+      <mxCell parent="feature" source="81" target="1" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_root>
+    <concrete label="Vista General" type="concrete" selected="false" id="87">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="110" y="164.5" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="ControlFitoSanitario" type="concrete" selected="false" id="97">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="1202.5" y="170" width="119" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_abstract type="relation" relType="mandatory" id="106">
+      <mxCell edge="1" parent="feature" source="23" target="8">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_abstract>
+    <rel_concrete_bundle type="relation" id="107">
+      <mxCell edge="1" parent="feature" source="23" target="25">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_bundle>
+    <rel_concrete_root type="relation" relType="optional" id="108">
+      <mxCell edge="1" parent="feature" source="97" target="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_root>
+    <concrete label="Vistas Plantación" type="concrete" selected="false" id="109">
+      <mxCell style="" vertex="1" parent="feature">
+        <mxGeometry x="91.5" y="460" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <abstract label="Gestión Plantación" type="abstract" id="111">
+      <mxCell style="strokeWidth=2" vertex="1" parent="feature">
+        <mxGeometry x="237" y="353" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </abstract>
+    <rel_abstract_abstract type="relation" relType="mandatory" id="112">
+      <mxCell edge="1" parent="feature" source="111" target="3">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_abstract_abstract>
+    <rel_concrete_abstract type="relation" relType="mandatory" id="113">
+      <mxCell edge="1" parent="feature" source="109" target="111">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_abstract>
+    <rel_abstract_bundle type="relation" id="114">
+      <mxCell edge="1" parent="feature" source="111" target="45">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_abstract_bundle>
+    <concrete label="Administrar Plantación" type="concrete" selected="false" id="115">
+      <mxCell style="" vertex="1" parent="feature">
+        <mxGeometry x="298.5" y="461.5" width="123" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_abstract type="relation" relType="mandatory" id="116">
+      <mxCell edge="1" parent="feature" source="115" target="111">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_abstract>
+    <rel_concrete_root type="relation" relType="mandatory" id="117">
+      <mxCell edge="1" parent="feature" source="87" target="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_root>
+    <concrete label="Luz" type="concrete" selected="false" id="119">
+      <mxCell style="" vertex="1" parent="feature">
+        <mxGeometry x="646" y="290" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Humedad" type="concrete" selected="false" id="120">
+      <mxCell style="" vertex="1" parent="feature">
+        <mxGeometry x="533.5" y="290" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Crecimiento y Desarrollo" type="concrete" selected="false" id="121">
+      <mxCell style="" vertex="1" parent="feature">
+        <mxGeometry x="390" y="290" width="130" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Temperatura" type="concrete" selected="false" id="122">
+      <mxCell style="" vertex="1" parent="feature">
+        <mxGeometry x="770" y="290" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_abstract type="relation" relType="mandatory" id="123">
+      <mxCell edge="1" parent="feature" source="121" target="9">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_abstract>
+    <rel_concrete_abstract type="relation" relType="optional" id="124">
+      <mxCell edge="1" parent="feature" source="120" target="9">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_abstract>
+    <rel_concrete_abstract type="relation" relType="optional" id="125">
+      <mxCell edge="1" parent="feature" source="119" target="9">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_abstract>
+    <rel_concrete_abstract type="relation" relType="optional" id="126">
+      <mxCell edge="1" parent="feature" source="122" target="9">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_abstract>
+    <concrete label="Vistas Control" type="concrete" selected="false" id="127">
+      <mxCell style="" vertex="1" parent="feature">
+        <mxGeometry x="890" y="284" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_abstract type="relation" relType="mandatory" id="128">
+      <mxCell edge="1" parent="feature" source="127" target="9">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_abstract>
+    <rel_concrete_abstract type="relation" relType="optional" id="129">
+      <mxCell edge="1" parent="feature" source="73" target="111">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_abstract>
+    <mxCell id="component" parent="0" visible="0"/>
+    <mxCell id="binding_feature_component" parent="0" visible="0"/>
+    <concrete label="Autenticación" type="concrete" selected="false" id="clon23">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="490" y="230" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Social" type="concrete" selected="false" id="clon24">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="650" y="260" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Básico" type="concrete" selected="false" id="clon26">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="740" y="390" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Lechuga" type="concrete" selected="false" id="clon48">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="350" y="650" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Tomate" type="concrete" selected="false" id="clon49">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="590" y="640" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Fresas" type="concrete" selected="false" id="clon53">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="460" y="710" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Reportes" type="concrete" selected="false" id="clon73">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="630" y="450" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="DB Management" type="concrete" selected="false" id="clon81">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="1240" y="160" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Vista General" type="concrete" selected="false" id="clon87">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="140" y="230" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="ControlFitoSanitario" type="concrete" selected="false" id="clon97">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="1210" y="390" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Vistas Plantación" type="concrete" selected="false" id="clon109">
+      <mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="100" y="460" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Administrar Plantación" type="concrete" selected="false" id="clon115">
+      <mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="320" y="450" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Luz" type="concrete" selected="false" id="clon119">
+      <mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="440" y="340" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Humedad" type="concrete" selected="false" id="clon120">
+      <mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="470" y="340" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Crecimiento y Desarrollo" type="concrete" selected="false" id="clon121">
+      <mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="440" y="290" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Temperatura" type="concrete" selected="false" id="clon122">
+      <mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="780" y="270" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="Vistas Control" type="concrete" selected="false" id="clon127">
+      <mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="890" y="270" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <mxCell id="istar" parent="0" visible="0"/>
+    <mxCell id="adaptation_state" parent="0" visible="0"/>
+    <mxCell id="adaptation_hardware" parent="0" visible="0"/>
+    <mxCell id="adaptation_binding_state_hardware" parent="0" visible="0"/>
+    <mxCell id="control" parent="0" visible="0"/>
+  </root>
+</mxGraphModel>
