@@ -1,0 +1,163 @@
+<mxGraphModel>
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="feature" parent="0"/>
+    <root label="AgroApp" type="root" id="1">
+      <mxCell style="strokeWidth=3" parent="feature" vertex="1">
+        <mxGeometry x="570" y="50" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </root>
+    <concrete label="ControlAmbiente" type="concrete" selected="true" id="5">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="570" y="330" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="ControlCuidado" type="concrete" selected="false" id="6">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="690" y="330" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_root type="relation" relType="optional" id="10">
+      <mxCell parent="feature" source="5" target="1" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_root>
+    <rel_concrete_root type="relation" relType="optional" id="11">
+      <mxCell parent="feature" source="6" target="1" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_root>
+    <concrete label="DataBase" type="concrete" selected="true" id="13">
+      <mxCell style="" parent="feature" vertex="1">
+        <mxGeometry x="410" y="330" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_root type="relation" relType="mandatory" id="14">
+      <mxCell parent="feature" source="13" target="1" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_root>
+    <mxCell id="component" parent="0" visible="0"/>
+    <component label="ControlCuidado" type="component" id="51">
+      <mxCell style="shape=component" vertex="1" parent="component">
+        <mxGeometry x="650" y="240" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </component>
+    <fragment label="ControlCuidado-alterDataBase" type="fragment" filename="alterDataBase.frag" id="54">
+      <mxCell style="shape=fragment" vertex="1" parent="component">
+        <mxGeometry x="660" y="350" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </fragment>
+    <rel_fragment_component type="relation" id="55">
+      <mxCell style="" edge="1" parent="component" source="54" target="51">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_fragment_component>
+    <component label="ControlAmbiente" type="component" id="67">
+      <mxCell style="shape=component" vertex="1" parent="component">
+        <mxGeometry x="110" y="270" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </component>
+    <fragment label="ControlAmbiente-alterDataBase" type="fragment" filename="alterDataBase.frag" id="70">
+      <mxCell style="shape=fragment" vertex="1" parent="component">
+        <mxGeometry x="310" y="350" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </fragment>
+    <rel_fragment_component type="relation" id="71">
+      <mxCell style="" edge="1" parent="component" source="70" target="67">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_fragment_component>
+    <component label="DataBase" type="component" id="74">
+      <mxCell style="shape=component" vertex="1" parent="component">
+        <mxGeometry x="150" y="50" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </component>
+    <file label="DataBase-ScriptsDB" type="file" filename="ScriptsDB.sql" destination="src/ScriptsDB.sql" id="75">
+      <mxCell style="shape=file" vertex="1" parent="component">
+        <mxGeometry x="150" y="120" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </file>
+    <rel_file_component type="relation" id="76">
+      <mxCell style="" edge="1" parent="component" source="75" target="74">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_file_component>
+    <rel_fragment_file type="relation" id="77">
+      <mxCell style="dashed=1;endArrow=open;strokeColor=red;" edge="1" parent="component" source="70" target="75">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_fragment_file>
+    <rel_fragment_file type="relation" id="78">
+      <mxCell style="dashed=1;endArrow=open;strokeColor=red;" edge="1" parent="component" source="54" target="75">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_fragment_file>
+    <mxCell id="binding_feature_component" parent="0" visible="0"/>
+    <concrete label="ControlAmbiente" type="concrete" selected="true" id="clon5">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="340" y="140" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="ControlCuidado" type="concrete" selected="false" id="clon6">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="350" y="230" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <concrete label="DataBase" type="concrete" selected="true" id="clon13">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
+        <mxGeometry x="360" y="70" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_component type="relation" id="46">
+      <mxCell parent="binding_feature_component" source="clon13" target="clon15" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_component>
+    <rel_concrete_component type="relation" id="48">
+      <mxCell parent="binding_feature_component" source="clon5" target="clon19" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_component>
+    <rel_concrete_component type="relation" id="50">
+      <mxCell parent="binding_feature_component" source="clon6" target="clon20" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_component>
+    <component label="ControlCuidado" type="component" id="clon51">
+      <mxCell style="shape=component;fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="100" y="230" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </component>
+    <component label="ControlAmbiente" type="component" id="clon67">
+      <mxCell style="shape=component;fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="90" y="120" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </component>
+    <component label="DataBase" type="component" id="clon74">
+      <mxCell style="shape=component;fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="80" y="60" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </component>
+    <rel_concrete_component type="relation" id="79">
+      <mxCell edge="1" parent="binding_feature_component" source="clon13" target="clon74">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_component>
+    <rel_concrete_component type="relation" id="81">
+      <mxCell edge="1" parent="binding_feature_component" source="clon6" target="clon51">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_component>
+    <rel_concrete_component type="relation" id="82">
+      <mxCell edge="1" parent="binding_feature_component" source="clon5" target="clon67">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_component>
+    <mxCell id="istar" parent="0" visible="0"/>
+    <mxCell id="adaptation_state" parent="0" visible="0"/>
+    <mxCell id="adaptation_hardware" parent="0" visible="0"/>
+    <mxCell id="adaptation_binding_state_hardware" parent="0" visible="0"/>
+    <mxCell id="control" parent="0" visible="0"/>
+  </root>
+</mxGraphModel>
