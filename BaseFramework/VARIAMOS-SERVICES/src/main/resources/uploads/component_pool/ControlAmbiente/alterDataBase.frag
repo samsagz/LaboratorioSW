@@ -2,9 +2,9 @@ Fragment ControlAmbiente-AlterDataBase {
    Action: add
    Priority: high
    FragmentationPoints: tables
+   PointBracketsLan: sql
    Destinations: DataBase-ScriptsDB
-   SourceCode: 
-        [ALTERCODE-FRAG]
+   SourceCode: [ALTERCODE-FRAG]
             /****** Object:  Table [dbo].[TipoVariableAmbiente]    Script Date: 6/10/2019 10:26:06 a.m. ******/
             SET ANSI_NULLS ON
             GO
