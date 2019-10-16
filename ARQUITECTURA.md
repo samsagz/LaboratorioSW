@@ -47,7 +47,8 @@ Son aquellas clases agrupadoras de comportamientos o métodos que se encargan de
 del negocio. En esta interactúan varias entidades del dominio y con el servicio prestado poder llevar a cabo las diferentes 
 tareas que se realizan en la aplicación y sirven para realizar el procesamiento de datos y manipular la información.
 
-### Modelo de Datos: En este apartado se aplica los procesos definidos en el modelo entidad-relación para aplicar la lógica 
+### Modelo de Datos
+En este apartado se aplica los procesos definidos en el modelo entidad-relación para aplicar la lógica 
 del negocio que se llevará a cabo en la aplicación.
 
 ## Capa de infraestructura
