@@ -1,4 +1,4 @@
-# Visión general de la Arquitectura : Modelo vista controlador
+# Visión general de la Arquitectura
 La arquitectura seleccionada para la realización de la aplicación e interacción web es el estilo arquitectural de 
 **Cliente/Servidor** relacionado con conceptos de **N-layer**¸ con el fin de ser más descriptivos al momento de detallar 
 cada uno de los diferentes elementos y tecnologías que están adecuados a la arquitectura propuesta.
