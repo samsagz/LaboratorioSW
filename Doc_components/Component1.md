@@ -85,7 +85,3 @@
 | ControlAmbiente-Diagram | Este fragmento se encarga de incluir en la solución (o en el modelo de la base de datos) el control de las tablas |
 
 
-
-
-
-
