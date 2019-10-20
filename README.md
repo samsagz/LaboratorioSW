@@ -34,7 +34,7 @@ Los componentes reutilizables se encuentran en la carpeta
 /Doc_components
 ```
 
-## Documentación de los modelos y main 
+## Documentación de los modelos y modelo main 
 
 ```
 /Models/Graphical_models/
