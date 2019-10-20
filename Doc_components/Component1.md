@@ -47,6 +47,45 @@
 | -- | -- |
 | IDENTIFICACIÓN | VariableControlView |
 | TIPO | ZIP |
-| LENGUAJE | C# |
+| LENGUAJE | Html - CSS |
 | DESCRIPCIÓN | Contiene todas las vistas (CRUD) necesarias para la tabla VariableControl |
+
+| COMPONENTE AMBIENTE | VariableControlController |
+| -- | -- |
+| IDENTIFICACIÓN | VariableControlController |
+| TIPO | CS |
+| LENGUAJE | C# |
+| DESCRIPCIÓN | Controlador de la tabla variableControl |
+
+| COMPONENTE AMBIENTE | VariableAmbienteController |
+| -- | -- |
+| IDENTIFICACIÓN | VariableAmbienteController |
+| TIPO | CS |
+| LENGUAJE | C# |
+| DESCRIPCIÓN | Controlador de la tabla VariableAmbiente |
+
+
+| COMPONENTE AMBIENTE | VariableAmbienteView |
+| -- | -- |
+| IDENTIFICACIÓN | VariableAmbienteView |
+| TIPO | ZIP |
+| LENGUAJE | Html - CSS |
+| DESCRIPCIÓN | Contiene las vistas (CRUD) necesarias para la tabla VariableAmbiente |
+
+
+## FRAGMENTOS
+
+| COMPONENTE AMBIENTE | VariableAmbienteView |
+| -- | -- |
+| ControlAmbiente-alterDataBase | Este fragmento se utiliza para organizar la base de datos, con el objetivo de tener un control de ambiente, es decir tener un control oportuno de los sensores.|
+| ControlAmbiente-alterCsproj | Este fragmento se utiliza para visualizar en la solución los controller, las vistas y los modelos de Control Ambiente |
+| ControlAmbiente-SharedView | Este fragmento se encarga de agregar las vistas o la vista necesaria para el control de ambiente |
+| ControlAmbiente-ModelContext | Este fragmento se encarga de incluir en la solución (o en el modelo de la base de datos) el control de las tablas |
+| ControlAmbiente-Edmx | Este fragmento se encarga de incluir en la solución (o en el modelo de la base de datos) el control de las tablas |
+| ControlAmbiente-Diagram | Este fragmento se encarga de incluir en la solución (o en el modelo de la base de datos) el control de las tablas |
+
+
+
+
+
 
