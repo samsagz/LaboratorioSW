@@ -43,6 +43,10 @@ Los componentes reutilizables se encuentran en la carpeta
 
 # Información general del proyecto.
 
+
+## Matriz tecnológica
+
+
 |                   | Tecnologia          | Recurso o libreria               |
 | -- | -- | -- |
 | Cliente           | HTML, CSS           | Bootstrap, jquery                |
@@ -50,16 +54,21 @@ Los componentes reutilizables se encuentran en la carpeta
 | BackEnd           | SQL Express 2017 DB | N/A                              |
 
 
+
 Si utilizo componentes desarrollados por terceros menciónelos aquí (EJ: conversor
 a pdf, script de login con Facebook, etc.):
 
- - No se utilizó software ni librerías de terceros, solo las proporcionadas por .NET
-   para el desarrollo MVC.
+```
+- No se utilizó software ni librerías de terceros, solo las proporcionadas por .NET
+  para el desarrollo MVC.
+```
 
 Si utilizó uno o varios frameworks base para la construcción del proyecto
 menciónelos aquí (EJ: Spring MVC, Laravel, Ruby on Rails, Vue.js, Node.js, etc):
+
+```
   - Microsoft MVC 6
   - Microsoft SQL server express 2017
   - Entity Framework
-  
+```
   
