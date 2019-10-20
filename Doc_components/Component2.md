@@ -16,7 +16,7 @@
 | COMPONENTE CUIDADO | PRINCIPALES FUNCIONALIDADES |
 | -- | -- |
 | NOMBRE | CONTROL DE CUIDADO |
-| DESCRIPCIÓN | Su principal funcionalidad se basa en permitir tener el control de las variables de cuidado de las plantaciones, es decir, me permite definir las variables de cuidado iniciales para cada plantación,  almacenar los datos ingresados y recolectados, validar las cantidades de los nutrientes por plantación, gestionar las variables de cuidado y controlar dichas variables |
+| DESCRIPCIÓN | Su principal funcionalidad se basa en permitir tener el control de las variables de cuidado de las plantaciones, es decir, nos permite definir las variables de cuidado iniciales para cada plantación,  almacenar los datos ingresados y recolectados, validar las cantidades de los nutrientes por plantación, gestionar las variables de cuidado y controlar dichas variables |
 | ENTRADAS | En construcción |
 | SALIDAS | En construcción |
 
