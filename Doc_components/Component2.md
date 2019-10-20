@@ -4,7 +4,7 @@
 
 | COMPONENTE CUIDADO | DESCRIPCIÓN GENERAL |
 | -- | -- |
-| DESCRIPCIÓN | Este componente se encarga de controlar y administrar las varialbes de cuidado de los cultivos de la granja |
+| DESCRIPCIÓN | Este componente se encarga de controlar y administrar las variables de cuidado de los cultivos de la granja |
 | VERSIÓN | 1.0 |
 | FECHA ULTIMA MODIFICACIÓN | 17 DE OCTUBRE 2019 |
 | DESARROLLADORES | German Bedoya, Ana Builes, Juan Fernando Zuluaga, Jhon Fabher Florez, Jose |
@@ -16,7 +16,7 @@
 | COMPONENTE CUIDADO | PRINCIPALES FUNCIONALIDADES |
 | -- | -- |
 | NOMBRE | CONTROL DE CUIDADO |
-| DESCRIPCIÓN | la Funcionalidad principal, es la que me permite tener el control de las variables de cuidado de las plantaciones, es decir, me permite definir las variables de cuidado iniciales para cada plantación,  almacenar los datos ingresados y recolectados, validar las cantidades de los nutrientes por plantación, gestionar las variables de cuidado y controlar dichas variables |
+| DESCRIPCIÓN | Su principal funcionalidad se basa en permitir tener el control de las variables de cuidado de las plantaciones, es decir, me permite definir las variables de cuidado iniciales para cada plantación,  almacenar los datos ingresados y recolectados, validar las cantidades de los nutrientes por plantación, gestionar las variables de cuidado y controlar dichas variables |
 | ENTRADAS | En construcción |
 | SALIDAS | En construcción |
 
