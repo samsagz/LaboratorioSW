@@ -1,6 +1,6 @@
 # LaboratorioSW
 
-Proyecto de la materia Laboratiorio de Software
+Proyecto de la materia Laboratorio de Software
 
 ## Estudiantes
 
