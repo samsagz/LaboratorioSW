@@ -11,7 +11,6 @@
           <ScalarProperty Name="VariablesAmbienteId" ColumnName="VariablesAmbienteId" />
           <ScalarProperty Name="FechaEstimadaCosecha" ColumnName="FechaEstimadaCosecha" />
           <ScalarProperty Name="FechaRealCosecha" ColumnName="FechaRealCosecha" />
-          <ScalarProperty Name="SolucionNutricional" ColumnName="SolucionNutricional" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

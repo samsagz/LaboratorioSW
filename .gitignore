@@ -2,3 +2,10 @@ AgroApp/AgroAppMVC/.vs/
 AgroApp/AgroAppMVC/AgroAppMVC/bin/
 AgroApp/AgroAppMVC/AgroAppMVC/obj/
 .DS_Store
+BaseFramework/AgroAppMVC/.vs/
+BaseFramework/AgroAppMVC/AgroAppDomain/obj/
+BaseFramework/AgroAppMVC/AgroAppDomain/bin/
+BaseFramework/AgroAppMVC/AgroAppMVC/obj/
+BaseFramework/AgroAppMVC/AgroAppMVC/bin/
+BaseFramework/AgroAppMVC/ServicioGranja/Bin/
+BaseFramework/AgroAppMVC/ServicioGranja/obj/

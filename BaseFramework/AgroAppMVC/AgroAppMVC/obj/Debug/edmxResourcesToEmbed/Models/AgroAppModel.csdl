@@ -11,7 +11,6 @@
     <Property Name="VariablesAmbienteId" Type="Int32" />
     <Property Name="FechaEstimadaCosecha" Type="DateTime" Precision="0" />
     <Property Name="FechaRealCosecha" Type="DateTime" Precision="0" />
-    <Property Name="SolucionNutricional" Type="Double" />
     <NavigationProperty Name="Planta" Relationship="Self.FK_Modulo_Planta" FromRole="Modulo" ToRole="Planta" />
     <NavigationProperty Name="VariableAmbiente" Relationship="Self.FK_VariableAmbiente_Modulo" FromRole="Modulo" ToRole="VariableAmbiente" />
   </EntityType>
