@@ -4,7 +4,7 @@
 
 | COMPONENTE AMBIENTE | DESCRIPCIÓN GENERAL |
 | -- | -- |
-| DESCRIPCIÓN | Este componente se encarga de controlar y administrar las varialbes de ambiente de la granja |
+| DESCRIPCIÓN | Este componente se encarga de controlar y administrar las variables de ambiente de la granja |
 | VERSIÓN | 1.0 |
 | FECHA ULTIMA MODIFICACIÓN | 17 DE OCTUBRE 2019 |
 | DESARROLLADORES | German Bedoya, Ana Builes, Juan Fernando Zuluaga, Jhon Fabher Florez, Jose |
@@ -16,7 +16,7 @@
 | COMPONENTE AMBIENTE | PRINCIPALES FUNCIONALIDADES |
 | -- | -- |
 | NOMBRE | CONTROL DE AMBIENTE |
-| DESCRIPCIÓN | la Funcionalidad principal, es la que me permite tener el control de las variables de ambiente, es decir, me permite definir las variables de ambiente iniciales para la plantación,  almacenar los datos recolectados por los sensores, comparara las variables de ambiente establecidas con las variables de ambiente recolectadas y me permite controlar las variables de ambiente  |
+| DESCRIPCIÓN | la Funcionalidad principal se basa en permitir tener el control de las variables de ambiente, es decir, nos permite definir las variables de ambiente iniciales para la plantación,  almacenar los datos recolectados por los sensores, comparara las variables de ambiente establecidas con las variables de ambiente recolectadas y me permite controlar las variables de ambiente  |
 | ENTRADAS | En construcción |
 | SALIDAS | En construcción |
 
