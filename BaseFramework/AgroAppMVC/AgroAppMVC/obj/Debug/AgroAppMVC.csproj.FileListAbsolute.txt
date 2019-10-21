@@ -182,3 +182,4 @@ D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppMVC\obj\Debug\AgroAppMVC.c
 D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppMVC\obj\Debug\AgroAppMVC.csproj.CopyComplete
 D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppMVC\obj\Debug\AgroAppMVC.dll
 D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppMVC\obj\Debug\AgroAppMVC.pdb
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppMVC\bin\AgroAppDomain.dll.config

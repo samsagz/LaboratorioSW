@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AgroAppDomain.Enum
+namespace AgroAppDomain.Enums
 {
     public enum ETipoVariableAmbiente
     {

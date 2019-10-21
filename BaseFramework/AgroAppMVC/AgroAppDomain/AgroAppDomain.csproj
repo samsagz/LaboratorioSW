@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Enum\ETipoVariableAmbiente.cs" />
+    <Compile Include="Enums\ETipoVariableAmbiente.cs" />
     <Compile Include="Model\AgroAppModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
