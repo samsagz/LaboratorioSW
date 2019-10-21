@@ -66,7 +66,7 @@ void enviarDatos(){
     client.println("HostName: serviciotemp.azure-devices.net");
     client.println("SharedAccessKey: 4s3in6uscnb93JWpkq38vIbLtTaqAm7BZT1Re91WNCk=");
     client.println("DeviceId: arduinotest1");
-    client.println("Content-Type: aplication/json");
+    client.println("Content-Type: application/json");
     client.println("Content-Length: 60");
     client.println("");
     client.println(Mensaje);
