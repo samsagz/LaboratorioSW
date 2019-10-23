@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AgroAppDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="ModuloId" />
+          </Key>
+          <Property Name="ModuloId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlantaId" Type="int" />
+          <Property Name="NumeroPlantas" Type="int" />
+          <Property Name="FechaSiembra" Type="datetime2" Precision="0" />
+          <Property Name="VariablesAmbienteId" Type="int" />
+          <Property Name="FechaEstimadaCosecha" Type="datetime2" Precision="0" />
+          <Property Name="FechaRealCosecha" Type="datetime2" Precision="0" />
+          <Property Name="SolucionNutricional" Type="float" />
+        </EntityType>
+        <EntityType Name="Planta">
+          <Key>
+            <PropertyRef Name="PlantaId" />
+          </Key>
+          <Property Name="PlantaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombrePlanta" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SemanasCosecha" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoVariableAmbiente">
+          <Key>
+            <PropertyRef Name="TipoVariableAmbienteId" />
+          </Key>
+          <Property Name="TipoVariableAmbienteId" Type="int" Nullable="false" />
+          <Property Name="NombreTipoVariableAmbiente" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoVariableCuidado">
+          <Key>
+            <PropertyRef Name="TipoVariableCuidadoId" />
+          </Key>
+          <Property Name="TipoVariableCuidadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreTipoVariableCuidado" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Name="UsuarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cedula" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Permiso" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Clave" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VariableAmbiente">
+          <Key>
+            <PropertyRef Name="VariableAmbienteId" />
+          </Key>
+          <Property Name="VariableAmbienteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ModuloId" Type="int" Nullable="false" />
+          <Property Name="TipoVariableAmbienteId" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+          <Property Name="TimeTag" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VariableCuidado">
+          <Key>
+            <PropertyRef Name="VariablesCuidadoId" />
+          </Key>
+          <Property Name="VariablesCuidadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoVariableCuidadoId" Type="int" Nullable="false" />
+          <Property Name="ValorCuidado" Type="float" Nullable="false" />
+          <Property Name="PlantaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VariablesControl">
+          <Key>
+            <PropertyRef Name="VariableControlId" />
+          </Key>
+          <Property Name="VariableControlId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlantaId" Type="int" Nullable="false" />
+          <Property Name="TipoVariableAmbienteId" Type="int" Nullable="false" />
+          <Property Name="VariableControl" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Modulo_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="0..1" />
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="Modulo">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariableAmbiente_Modulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="VariableAmbiente" Type="Self.VariableAmbiente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="ModuloId" />
+            </Principal>
+            <Dependent Role="VariableAmbiente">
+              <PropertyRef Name="ModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariableAmbiente_TipoVariableAmbiente">
+          <End Role="TipoVariableAmbiente" Type="Self.TipoVariableAmbiente" Multiplicity="1" />
+          <End Role="VariableAmbiente" Type="Self.VariableAmbiente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVariableAmbiente">
+              <PropertyRef Name="TipoVariableAmbienteId" />
+            </Principal>
+            <Dependent Role="VariableAmbiente">
+              <PropertyRef Name="TipoVariableAmbienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariableCuidado_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="1" />
+          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="VariableCuidado">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariableCuidado_TipoVariableCuidado">
+          <End Role="TipoVariableCuidado" Type="Self.TipoVariableCuidado" Multiplicity="1" />
+          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVariableCuidado">
+              <PropertyRef Name="TipoVariableCuidadoId" />
+            </Principal>
+            <Dependent Role="VariableCuidado">
+              <PropertyRef Name="TipoVariableCuidadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariablesControl_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="1" />
+          <End Role="VariablesControl" Type="Self.VariablesControl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="VariablesControl">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariablesControl_TipoVariableAmbiente">
+          <End Role="TipoVariableAmbiente" Type="Self.TipoVariableAmbiente" Multiplicity="1" />
+          <End Role="VariablesControl" Type="Self.VariablesControl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVariableAmbiente">
+              <PropertyRef Name="TipoVariableAmbienteId" />
+            </Principal>
+            <Dependent Role="VariablesControl">
+              <PropertyRef Name="TipoVariableAmbienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AgroAppDbModelStoreContainer">
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Planta" EntityType="Self.Planta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoVariableAmbiente" EntityType="Self.TipoVariableAmbiente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoVariableCuidado" EntityType="Self.TipoVariableCuidado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VariableAmbiente" EntityType="Self.VariableAmbiente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VariableCuidado" EntityType="Self.VariableCuidado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VariablesControl" EntityType="Self.VariablesControl" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Modulo_Planta" Association="Self.FK_Modulo_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="Modulo" EntitySet="Modulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariableAmbiente_Modulo" Association="Self.FK_VariableAmbiente_Modulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="VariableAmbiente" EntitySet="VariableAmbiente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariableAmbiente_TipoVariableAmbiente" Association="Self.FK_VariableAmbiente_TipoVariableAmbiente">
+            <End Role="TipoVariableAmbiente" EntitySet="TipoVariableAmbiente" />
+            <End Role="VariableAmbiente" EntitySet="VariableAmbiente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariableCuidado_Planta" Association="Self.FK_VariableCuidado_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariableCuidado_TipoVariableCuidado" Association="Self.FK_VariableCuidado_TipoVariableCuidado">
+            <End Role="TipoVariableCuidado" EntitySet="TipoVariableCuidado" />
+            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariablesControl_Planta" Association="Self.FK_VariablesControl_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="VariablesControl" EntitySet="VariablesControl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariablesControl_TipoVariableAmbiente" Association="Self.FK_VariablesControl_TipoVariableAmbiente">
+            <End Role="TipoVariableAmbiente" EntitySet="TipoVariableAmbiente" />
+            <End Role="VariablesControl" EntitySet="VariablesControl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AgroAppDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="ModuloId" />
+          </Key>
+          <Property Name="ModuloId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlantaId" Type="Int32" />
+          <Property Name="NumeroPlantas" Type="Int32" />
+          <Property Name="FechaSiembra" Type="DateTime" Precision="0" />
+          <Property Name="FechaEstimadaCosecha" Type="DateTime" Precision="0" />
+          <Property Name="FechaRealCosecha" Type="DateTime" Precision="0" />
+          <Property Name="SolucionNutricional" Type="Double" />
+          <NavigationProperty Name="Planta" Relationship="Self.FK_Modulo_Planta" FromRole="Modulo" ToRole="Planta" />
+          <NavigationProperty Name="VariableAmbiente" Relationship="Self.FK_VariableAmbiente_Modulo" FromRole="Modulo" ToRole="VariableAmbiente" />
+        </EntityType>
+        <EntityType Name="Planta">
+          <Key>
+            <PropertyRef Name="PlantaId" />
+          </Key>
+          <Property Name="PlantaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombrePlanta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SemanasCosecha" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Modulo" Relationship="Self.FK_Modulo_Planta" FromRole="Planta" ToRole="Modulo" />
+          <NavigationProperty Name="VariableCuidado" Relationship="Self.FK_VariableCuidado_Planta" FromRole="Planta" ToRole="VariableCuidado" />
+          <NavigationProperty Name="VariablesControl" Relationship="Self.FK_VariablesControl_Planta" FromRole="Planta" ToRole="VariablesControl" />
+        </EntityType>
+        <EntityType Name="TipoVariableAmbiente">
+          <Key>
+            <PropertyRef Name="TipoVariableAmbienteId" />
+          </Key>
+          <Property Name="TipoVariableAmbienteId" Type="Int32" Nullable="false" />
+          <Property Name="NombreTipoVariableAmbiente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="VariableAmbiente" Relationship="Self.FK_VariableAmbiente_TipoVariableAmbiente" FromRole="TipoVariableAmbiente" ToRole="VariableAmbiente" />
+          <NavigationProperty Name="VariablesControl" Relationship="Self.FK_VariablesControl_TipoVariableAmbiente" FromRole="TipoVariableAmbiente" ToRole="VariablesControl" />
+        </EntityType>
+        <EntityType Name="TipoVariableCuidado">
+          <Key>
+            <PropertyRef Name="TipoVariableCuidadoId" />
+          </Key>
+          <Property Name="TipoVariableCuidadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipoVariableCuidado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="VariableCuidado" Relationship="Self.FK_VariableCuidado_TipoVariableCuidado" FromRole="TipoVariableCuidado" ToRole="VariableCuidado" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Permiso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VariableAmbiente">
+          <Key>
+            <PropertyRef Name="VariableAmbienteId" />
+          </Key>
+          <Property Name="VariableAmbienteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModuloId" Type="Int32" Nullable="false" />
+          <Property Name="TipoVariableAmbienteId" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Double" Nullable="false" />
+          <Property Name="TimeTag" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Modulo" Relationship="Self.FK_VariableAmbiente_Modulo" FromRole="VariableAmbiente" ToRole="Modulo" />
+          <NavigationProperty Name="TipoVariableAmbiente" Relationship="Self.FK_VariableAmbiente_TipoVariableAmbiente" FromRole="VariableAmbiente" ToRole="TipoVariableAmbiente" />
+        </EntityType>
+        <EntityType Name="VariableCuidado">
+          <Key>
+            <PropertyRef Name="VariablesCuidadoId" />
+          </Key>
+          <Property Name="VariablesCuidadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoVariableCuidadoId" Type="Int32" Nullable="false" />
+          <Property Name="ValorCuidado" Type="Double" Nullable="false" />
+          <Property Name="PlantaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Planta" Relationship="Self.FK_VariableCuidado_Planta" FromRole="VariableCuidado" ToRole="Planta" />
+          <NavigationProperty Name="TipoVariableCuidado" Relationship="Self.FK_VariableCuidado_TipoVariableCuidado" FromRole="VariableCuidado" ToRole="TipoVariableCuidado" />
+        </EntityType>
+        <EntityType Name="VariablesControl">
+          <Key>
+            <PropertyRef Name="VariableControlId" />
+          </Key>
+          <Property Name="VariableControlId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlantaId" Type="Int32" Nullable="false" />
+          <Property Name="TipoVariableAmbienteId" Type="Int32" Nullable="false" />
+          <Property Name="VariableControl" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Planta" Relationship="Self.FK_VariablesControl_Planta" FromRole="VariablesControl" ToRole="Planta" />
+          <NavigationProperty Name="TipoVariableAmbiente" Relationship="Self.FK_VariablesControl_TipoVariableAmbiente" FromRole="VariablesControl" ToRole="TipoVariableAmbiente" />
+        </EntityType>
+        <Association Name="FK_Modulo_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="0..1" />
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="Modulo">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariableAmbiente_Modulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="VariableAmbiente" Type="Self.VariableAmbiente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="ModuloId" />
+            </Principal>
+            <Dependent Role="VariableAmbiente">
+              <PropertyRef Name="ModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariableCuidado_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="1" />
+          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="VariableCuidado">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariablesControl_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="1" />
+          <End Role="VariablesControl" Type="Self.VariablesControl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="VariablesControl">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariableAmbiente_TipoVariableAmbiente">
+          <End Role="TipoVariableAmbiente" Type="Self.TipoVariableAmbiente" Multiplicity="1" />
+          <End Role="VariableAmbiente" Type="Self.VariableAmbiente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVariableAmbiente">
+              <PropertyRef Name="TipoVariableAmbienteId" />
+            </Principal>
+            <Dependent Role="VariableAmbiente">
+              <PropertyRef Name="TipoVariableAmbienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariablesControl_TipoVariableAmbiente">
+          <End Role="TipoVariableAmbiente" Type="Self.TipoVariableAmbiente" Multiplicity="1" />
+          <End Role="VariablesControl" Type="Self.VariablesControl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVariableAmbiente">
+              <PropertyRef Name="TipoVariableAmbienteId" />
+            </Principal>
+            <Dependent Role="VariablesControl">
+              <PropertyRef Name="TipoVariableAmbienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariableCuidado_TipoVariableCuidado">
+          <End Role="TipoVariableCuidado" Type="Self.TipoVariableCuidado" Multiplicity="1" />
+          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVariableCuidado">
+              <PropertyRef Name="TipoVariableCuidadoId" />
+            </Principal>
+            <Dependent Role="VariableCuidado">
+              <PropertyRef Name="TipoVariableCuidadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AgroAppDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" />
+          <EntitySet Name="Planta" EntityType="Self.Planta" />
+          <EntitySet Name="TipoVariableAmbiente" EntityType="Self.TipoVariableAmbiente" />
+          <EntitySet Name="TipoVariableCuidado" EntityType="Self.TipoVariableCuidado" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="VariableAmbiente" EntityType="Self.VariableAmbiente" />
+          <EntitySet Name="VariableCuidado" EntityType="Self.VariableCuidado" />
+          <EntitySet Name="VariablesControl" EntityType="Self.VariablesControl" />
+          <AssociationSet Name="FK_Modulo_Planta" Association="Self.FK_Modulo_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="Modulo" EntitySet="Modulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariableAmbiente_Modulo" Association="Self.FK_VariableAmbiente_Modulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="VariableAmbiente" EntitySet="VariableAmbiente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariableCuidado_Planta" Association="Self.FK_VariableCuidado_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariablesControl_Planta" Association="Self.FK_VariablesControl_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="VariablesControl" EntitySet="VariablesControl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariableAmbiente_TipoVariableAmbiente" Association="Self.FK_VariableAmbiente_TipoVariableAmbiente">
+            <End Role="TipoVariableAmbiente" EntitySet="TipoVariableAmbiente" />
+            <End Role="VariableAmbiente" EntitySet="VariableAmbiente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariablesControl_TipoVariableAmbiente" Association="Self.FK_VariablesControl_TipoVariableAmbiente">
+            <End Role="TipoVariableAmbiente" EntitySet="TipoVariableAmbiente" />
+            <End Role="VariablesControl" EntitySet="VariablesControl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariableCuidado_TipoVariableCuidado" Association="Self.FK_VariableCuidado_TipoVariableCuidado">
+            <End Role="TipoVariableCuidado" EntitySet="TipoVariableCuidado" />
+            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AgroAppDbModelStoreContainer" CdmEntityContainer="AgroAppDbEntities">
+          <EntitySetMapping Name="Modulo">
+            <EntityTypeMapping TypeName="AgroAppDbModel.Modulo">
+              <MappingFragment StoreEntitySet="Modulo">
+                <ScalarProperty Name="ModuloId" ColumnName="ModuloId" />
+                <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+                <ScalarProperty Name="NumeroPlantas" ColumnName="NumeroPlantas" />
+                <ScalarProperty Name="FechaSiembra" ColumnName="FechaSiembra" />
+                <ScalarProperty Name="FechaEstimadaCosecha" ColumnName="FechaEstimadaCosecha" />
+                <ScalarProperty Name="FechaRealCosecha" ColumnName="FechaRealCosecha" />
+                <ScalarProperty Name="SolucionNutricional" ColumnName="SolucionNutricional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Planta">
+            <EntityTypeMapping TypeName="AgroAppDbModel.Planta">
+              <MappingFragment StoreEntitySet="Planta">
+                <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+                <ScalarProperty Name="NombrePlanta" ColumnName="NombrePlanta" />
+                <ScalarProperty Name="SemanasCosecha" ColumnName="SemanasCosecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoVariableAmbiente">
+            <EntityTypeMapping TypeName="AgroAppDbModel.TipoVariableAmbiente">
+              <MappingFragment StoreEntitySet="TipoVariableAmbiente">
+                <ScalarProperty Name="TipoVariableAmbienteId" ColumnName="TipoVariableAmbienteId" />
+                <ScalarProperty Name="NombreTipoVariableAmbiente" ColumnName="NombreTipoVariableAmbiente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoVariableCuidado">
+            <EntityTypeMapping TypeName="AgroAppDbModel.TipoVariableCuidado">
+              <MappingFragment StoreEntitySet="TipoVariableCuidado">
+                <ScalarProperty Name="TipoVariableCuidadoId" ColumnName="TipoVariableCuidadoId" />
+                <ScalarProperty Name="NombreTipoVariableCuidado" ColumnName="NombreTipoVariableCuidado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="AgroAppDbModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Permiso" ColumnName="Permiso" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VariableAmbiente">
+            <EntityTypeMapping TypeName="AgroAppDbModel.VariableAmbiente">
+              <MappingFragment StoreEntitySet="VariableAmbiente">
+                <ScalarProperty Name="VariableAmbienteId" ColumnName="VariableAmbienteId" />
+                <ScalarProperty Name="ModuloId" ColumnName="ModuloId" />
+                <ScalarProperty Name="TipoVariableAmbienteId" ColumnName="TipoVariableAmbienteId" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="TimeTag" ColumnName="TimeTag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VariableCuidado">
+            <EntityTypeMapping TypeName="AgroAppDbModel.VariableCuidado">
+              <MappingFragment StoreEntitySet="VariableCuidado">
+                <ScalarProperty Name="VariablesCuidadoId" ColumnName="VariablesCuidadoId" />
+                <ScalarProperty Name="TipoVariableCuidadoId" ColumnName="TipoVariableCuidadoId" />
+                <ScalarProperty Name="ValorCuidado" ColumnName="ValorCuidado" />
+                <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VariablesControl">
+            <EntityTypeMapping TypeName="AgroAppDbModel.VariablesControl">
+              <MappingFragment StoreEntitySet="VariablesControl">
+                <ScalarProperty Name="VariableControlId" ColumnName="VariableControlId" />
+                <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+                <ScalarProperty Name="TipoVariableAmbienteId" ColumnName="TipoVariableAmbienteId" />
+                <ScalarProperty Name="VariableControl" ColumnName="VariableControl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
