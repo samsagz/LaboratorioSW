@@ -101,12 +101,18 @@
 
     <script src="~/Scripts/d3/d3.js"></script>
     <script src="~/Scripts/Dashboard/principal.js"></script>
-    @*<script src="~/Scripts/Dashboard/info-general.js"></script>
-        <script src="~/Scripts/Dashboard/ambiente.js"></script>
+    @*<script src="~/Scripts/Dashboard/info-general.js"></script>*@
+    <script src="~/Scripts/Dashboard/ambiente.js"></script>
+    @*
         <script src="~/Scripts/Dashboard/grafica-services.js"></script>*@
 
     <script type="text/javascript">
-        principal('@Url.Action("Modulos", "Home")/');
+        //Principal.js
+        principal('@Url.Action("Modulos", "Home")/',@ViewBag.ModuloId);
+
+        debugger;
+        //ambiente.js
+        variablesAmbiente('@Url.Action("ValoresAmbiente", "Home")/',@ViewBag.ModuloId)
 
     </script>
 
