@@ -12,6 +12,10 @@ int temInit;
 int temFinal;
 int humFinal;
 
+const int capacity = JSON_OBJECT_SIZE(4);
+StaticJsonDocument<capacity> JSONpost; 
+StaticJsonDocument<254> JSONget; 
+
 void setup() {
 
   Serial.begin(115200);
@@ -49,19 +53,19 @@ void postServerTemp(int paramSensor, int moduloID){
   if (WiFi.status() == WL_CONNECTED) { 
 
     const int capacity = JSON_OBJECT_SIZE(4);
-    StaticJsonDocument<capacity> JSONbuffer;   //Declaring static JSON buffer
+    StaticJsonDocument<capacity> JSONpost;   //Declaring static JSON buffer
    
-    JSONbuffer["Fecha"] = "1010";
-    JSONbuffer["VariableAmbiente"] = "Temperatura"; //Add value to array
-    JSONbuffer["Valor"] = paramSensor; //Add value to array
-    JSONbuffer["ModuloId"] = moduloID;
+    JSONpost["Fecha"] = "1010";
+    JSONpost["VariableAmbiente"] = "Temperatura"; //Add value to array
+    JSONpost["Valor"] = paramSensor; //Add value to array
+    JSONpost["ModuloId"] = moduloID;
      //Add value to array
 
-    serializeJsonPretty(JSONbuffer, Serial);
+    serializeJsonPretty(JSONpost, Serial);
 
     char JSONmessageBuffer[200];
 
-    serializeJson(JSONbuffer, JSONmessageBuffer);
+    serializeJson(JSONpost, JSONmessageBuffer);
     Serial.println(JSONmessageBuffer);
     HTTPClient http;    //Declare object of class HTTPClient
 
@@ -69,10 +73,17 @@ void postServerTemp(int paramSensor, int moduloID){
     http.addHeader("Content-Type", "application/json");  //Specify content-type header
 
     int httpCode = http.POST(JSONmessageBuffer);   //Send the request
-    String payload = http.getString();             //Get the response payload
+    String response = http.getString();             //Get the response payload
+
+    
 
     Serial.println(httpCode);   //Print HTTP return code
-    Serial.println(payload);    //Print request response payload
+    Serial.println(response);    //Print request response payload
+
+    deserializeJSON(response);
+
+    
+    
 
     http.end();  //Close connection
 
@@ -83,24 +94,70 @@ void postServerTemp(int paramSensor, int moduloID){
   }
 }
 
+void deserializeJSON(String response){
+
+  DeserializationError error = deserializeJson(JSONget,response);
+    
+    if(error){
+      Serial.println("Ocurrio un error al deserializar el Json: ");
+      return;
+    }
+
+    int i = 0;
+    bool activateSensor;
+    while(i <= JSONget["Actuadores"].size()){
+
+      if(JSONget["Actuadores"][i]["NombreActuador"] == "Ventilador"){
+        activateSensor = JSONget["Actuadores"][i]["Activar"];
+        actuadorVentilador(activateSensor);
+      }
+
+      if(JSONget["Actuadores"][i]["NombreActuador"] == "Bomba"){
+        activateSensor = JSONget["Actuadores"][i]["Activar"];
+        actuadorBomba(activateSensor);
+      }
+
+      i++;
+    }
+
+    
+}
+
+void actuadorVentilador(bool activar){
+
+  if(activar == true){
+    Serial.println("ACTIVAR VENTILADOR");
+  }else{
+    Serial.println("DESACTIVAR VENTILADOR");
+  }
+}
+
+void actuadorBomba(bool activar){
+
+  if(activar == true){
+    Serial.println("ACTIVAR IRRIGACION");
+  }else{
+    Serial.println("DESACTIVAR IRRIGACION");
+  }
+}
+
 void postServerHume(int paramSensor, int moduloID){
  
   if (WiFi.status() == WL_CONNECTED) { 
 
-    const int capacity = JSON_OBJECT_SIZE(4);
-    StaticJsonDocument<capacity> JSONbuffer;   //Declaring static JSON buffer
+     //Declaring static JSON buffer
    
-    JSONbuffer["Fecha"] = "1010";
-    JSONbuffer["VariableAmbiente"] = "Humedad"; //Add value to array
-    JSONbuffer["Valor"] = paramSensor; //Add value to array
-    JSONbuffer["ModuloId"] = moduloID;
+    JSONpost["Fecha"] = "1010";
+    JSONpost["VariableAmbiente"] = "Humedad"; //Add value to array
+    JSONpost["Valor"] = paramSensor; //Add value to array
+    JSONpost["ModuloId"] = moduloID;
      //Add value to array
 
-    serializeJsonPretty(JSONbuffer, Serial);
+    serializeJsonPretty(JSONpost, Serial);
 
     char JSONmessageBuffer[200];
 
-    serializeJson(JSONbuffer, JSONmessageBuffer);
+    serializeJson(JSONpost, JSONmessageBuffer);
     Serial.println(JSONmessageBuffer);
     HTTPClient http;    //Declare object of class HTTPClient
 
@@ -108,10 +165,12 @@ void postServerHume(int paramSensor, int moduloID){
     http.addHeader("Content-Type", "application/json");  //Specify content-type header
 
     int httpCode = http.POST(JSONmessageBuffer);   //Send the request
-    String payload = http.getString();             //Get the response payload
+    String response = http.getString();             //Get the response payload
 
-    Serial.println(httpCode);   //Print HTTP return code
-    Serial.println(payload);    //Print request response payload
+    Serial.println(httpCode);
+    Serial.println(response);    //Print request response payload
+
+    deserializeJSON(response);
 
     http.end();  //Close connection
 
@@ -139,7 +198,7 @@ void eventTem() {
 
   } else {
     temInit = temFinal;
-    Serial.println("No envio de Variables de Temperatura iguales en intervalo de tiempo");
+    Serial.println("No envio de Variables de Temperatura, iguales en intervalo de tiempo");
     Serial.println(temFinal);
     Serial.println(temInit);
   }
@@ -162,7 +221,7 @@ void eventHum() {
     return;
   } else {
     humInit = humFinal;
-    Serial.println("No envio de Variables de Humedad iguales en intervalo de tiempo");
+    Serial.println("No envio de Variables de Humedad, iguales en intervalo de tiempo");
     Serial.println(humFinal);
     Serial.println(humInit);
   }
@@ -173,7 +232,7 @@ void loop() {
 
   eventTem();
   eventHum();
-
-  //delay(15000);
+   
+  
 
 }
