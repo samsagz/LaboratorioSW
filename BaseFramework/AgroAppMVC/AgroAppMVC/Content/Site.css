@@ -22,3 +22,12 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#mainNav .navbar-nav li.nav-item a.nav-link {
+    color: white;
+}
+
+#mainNav .container .navbar-brand {
+    color:white;
+    font-weight:bold;
+}

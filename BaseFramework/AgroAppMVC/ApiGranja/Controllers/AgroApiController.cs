@@ -48,7 +48,7 @@ namespace ApiGranja.Controllers
             {
                 return new RegistroResponse
                 {
-                    Mensaje = "Error - " + e.Message,
+                    Mensaje = "Error - " + e.Message + " ///" + e.InnerException,
                     Actuadores = new List<Actuador>()
                 };
             }

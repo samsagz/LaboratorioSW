@@ -25,7 +25,11 @@ namespace AgroAppDomain
 
             _db.SaveChanges();
 
-            return new List<Actuador>();
+            return new List<Actuador>()
+            {
+                new Actuador(){NombreActuador="Ventilador",Activar=false},
+                new Actuador(){NombreActuador="Bomba",Activar=true}
+            };
 
         }
     }
