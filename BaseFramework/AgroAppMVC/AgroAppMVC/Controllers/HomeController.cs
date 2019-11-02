@@ -77,14 +77,39 @@ namespace AgroAppMVC.Controllers
 
         public JsonResult ValoresAmbiente(int? id)
         {
-            var result = new
+            var result = new ValoresAmbienteResult
             {
                 id = 1,
-                variable_ambiente = new Dictionary<string, string>
+                variables_ambiente = new Dictionary<string, double>
                 {
-                    {"Luz","21.3" },
-                    {"Temperatura","30.1" },
-                    {"Humedad","2.3" },
+                    {"Luz",21.3 },
+                    {"Temperatura",30.1 },
+                    {"Humedad",2.3 },
+                }
+            };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GraficarAmbiente(string id)
+        {
+            var result = new List<GraficaAmbienteResult>
+            {
+                new GraficaAmbienteResult {
+                    captura= "1",
+                    valor= 100
+                },
+                new GraficaAmbienteResult {
+                    captura= "2",
+                    valor= 60
+                },
+                new GraficaAmbienteResult {
+                    captura= "3",
+                    valor= 30
+                },
+                new GraficaAmbienteResult {
+                    captura= "4",
+                    valor= 110
                 }
             };
 

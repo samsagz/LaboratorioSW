@@ -73,7 +73,9 @@
     <Compile Include="Model\Planta.cs">
       <DependentUpon>AgroAppModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Response\GraficaAmbienteResult.cs" />
     <Compile Include="Model\Response\ModuloResult.cs" />
+    <Compile Include="Model\Response\ValoresAmbienteResult.cs" />
     <Compile Include="Model\TipoVariableAmbiente.cs">
       <DependentUpon>AgroAppModel.tt</DependentUpon>
     </Compile>

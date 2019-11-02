@@ -3,18 +3,20 @@ function variablesAmbiente(urlPrincipal, moduloId) {
     this.valorRefresco = 1000;
     this.urlPrincipal = urlPrincipal;
     this.moduloId = moduloId;
-    debugger;
-    function llamadoServidor() {
-        debugger;
+    this.ambienteInterval;
 
+    localObject = this;
+
+    function llamadoServidor() {
+        clearInterval(localObject.ambienteInterval);
         $.ajax({
             type: 'GET',
             url: this.urlPrincipal + this.moduloId,
             success: function (data) {
                 $('#info_ambiente').html("");
                 for (var key in data.variables_ambiente) {
-                    $('info_ambiente').append(
-                        '<div class="prueba col-md-6"><p class="variable" id=' + key + '>' +
+                    $('#info_ambiente').append(
+                        '<div class="prueba col-md-6"><p class="variable" id="' + key + 'Ambiente">' +
                         key +
                         '</p></div>' +
                         '<div class="col-md-6"><p>' +
@@ -22,8 +24,11 @@ function variablesAmbiente(urlPrincipal, moduloId) {
                         '</p></div>');
                 }
             }
+
+        }).always(function () {
+            localObject.ambienteInterval = setInterval(llamadoServidor, valorRefresco);
         });
     }
-    setInterval(llamadoServidor, valorRefresco);
+    localObject.ambienteInterval = setInterval(llamadoServidor, valorRefresco);
 
 }
