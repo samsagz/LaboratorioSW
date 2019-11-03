@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AgroAppDomain;
 using AgroAppDomain.Model.Response;
 
 namespace AgroAppMVC.Controllers
 {
     public class HomeController : Controller
     {
+        private Dashboard dashboard = new Dashboard();
+
         public ActionResult Index()
         {
             return View();
@@ -30,88 +33,29 @@ namespace AgroAppMVC.Controllers
 
         public ActionResult Dashboard(int? id)
         {
-            ViewBag.ModuloId = id == null ? 1 : id;
+            ViewBag.ModuloId = id == null ? dashboard.ModuloDefault() : id;
             return View();
         }
 
         [HttpGet]
-        public JsonResult Modulos(int? id)
+        public JsonResult Modulos(int id)
         {
-            var result = new List<ModuloResult>();
-
             //frijol
-            var modulo = new ModuloResult
-            {
-                id = 1,
-                nombre = "Frijol",
-                modulos = new Dictionary<string, int>
-                {
-                    {"Frijol",1 },
-                    {"Zanahoria", 2 }
-                },
-                info_general = new Dictionary<string, string>
-                    {
-                        { "Cantidad de Plantas", "12" },
-                        { "Fecha de Siembra", "10/10/2019" },
-                        { "Fecha estimada", "15/10/2019" },
-                        { "Fecha Real", "30/10/2019" },
-                        { "Solución Nutricional", "Lo nutricional del Frijol" }
-                    },
-                variables_control = new Dictionary<string, int>
-                    {
-                        { "Luz" , 18 },
-                        { "Temperatura", 25 },
-                        { "Humedad" , 39 }
-                    },
-                variables_cuidado = new Dictionary<string, string>
-                    {
-                        { "Pesticidas" , "Una vez por semana" },
-                        { "Riego" , "Día por medio"},
-                        { "Fertilizantes" , "Dos veces por semana" }
-                    }
-
-            };
+            var modulo = dashboard.DatosBasicos(id);
 
             return Json(modulo, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult ValoresAmbiente(int? id)
+        public JsonResult ValoresAmbiente(int id)
         {
-            var result = new ValoresAmbienteResult
-            {
-                id = 1,
-                variables_ambiente = new Dictionary<string, double>
-                {
-                    {"Luz",21.3 },
-                    {"Temperatura",30.1 },
-                    {"Humedad",2.3 },
-                }
-            };
+            var result = dashboard.ValoresAmbiente(id);
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GraficarAmbiente(string id)
+        public JsonResult GraficarAmbiente(int id, string value)
         {
-            var result = new List<GraficaAmbienteResult>
-            {
-                new GraficaAmbienteResult {
-                    captura= "1",
-                    valor= 100
-                },
-                new GraficaAmbienteResult {
-                    captura= "2",
-                    valor= 60
-                },
-                new GraficaAmbienteResult {
-                    captura= "3",
-                    valor= 30
-                },
-                new GraficaAmbienteResult {
-                    captura= "4",
-                    valor= 110
-                }
-            };
+            var result = dashboard.GraficarAmbiente(id, value);
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }

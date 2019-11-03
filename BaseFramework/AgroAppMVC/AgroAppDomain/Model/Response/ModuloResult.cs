@@ -10,9 +10,9 @@ namespace AgroAppDomain.Model.Response
     {
         public int id { get; set; }
         public string nombre { get; set; }
-        public Dictionary<string,int> modulos { get; set; }
+        public Dictionary<string, string> modulos { get; set; }
         public Dictionary<string,string> info_general { get; set; }
-        public Dictionary<string,int> variables_control { get; set; }
+        public Dictionary<string,string> variables_control { get; set; }
         public Dictionary<string,string> variables_cuidado { get; set; }
 
     }

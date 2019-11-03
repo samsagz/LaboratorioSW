@@ -1,4 +1,4 @@
-function principal(urlPrincipal, moduloId) {
+function principal(urlPrincipal, urlDashboard, moduloId) {
     $.getJSON(urlPrincipal + moduloId, //'http://localhost:3000/modulos/1',
         function (data) {
             $('#n_modulo').html(data.nombre);
@@ -7,9 +7,9 @@ function principal(urlPrincipal, moduloId) {
             for (var modulo in data.modulos) {
                 console.log(data.modulos);
                 $("#navbarsModules ul").append('<li class="nav-item active"><h5>' +
-                    '<a id="' + modulo + data.modulos[modulo] +
-                    '" href="' + urlPrincipal + data.modulos[modulo] +
-                    '" class="nav-link menu spacing">Plantación ' + modulo + '</a>' +
+                    '<a id="' + data.modulos[modulo] + modulo +
+                    '" href="' + urlDashboard + modulo +
+                    '" class="nav-link menu spacing">Plantación ' + data.modulos[modulo] + '</a>' +
                     '</h5> </li>');
             }
 

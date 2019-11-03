@@ -15,8 +15,8 @@ namespace AgroAppMVC
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{id}/{value}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, value = UrlParameter.Optional }
             );
         }
     }

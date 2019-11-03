@@ -111,13 +111,13 @@
 
     <script type="text/javascript">
         //Principal.js
-        principal('@Url.Action("Modulos", "Home")/',@ViewBag.ModuloId);
+        principal('@Url.Action("Modulos", "Home", new { id = "" })/', '@Url.Action("Dashboard", "Home", new { id="" })/',@ViewBag.ModuloId);
 
         //ambiente.js
-        variablesAmbiente('@Url.Action("ValoresAmbiente", "Home")/',@ViewBag.ModuloId)
+        variablesAmbiente('@Url.Action("ValoresAmbiente", "Home", new { id = "" })/',@ViewBag.ModuloId)
 
         //grafica-services.js
-        graficaUrl = '@Url.Action("GraficarAmbiente", "Home")/';
+        graficaUrl = '@Url.Action("GraficarAmbiente", "Home", new { id = "" })/';
 
     </script>
 

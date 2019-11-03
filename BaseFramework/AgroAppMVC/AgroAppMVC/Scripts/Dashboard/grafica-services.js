@@ -1,6 +1,7 @@
 var graficaUrl = null; //'http://localhost:3000/' + var_ambiente;
 var graficaInterval = 0;
 var intervaloGrafica = 5000;
+var moduloId = null;
 var var_ambiente = null;
 
 function mostrarData(action) {
@@ -20,9 +21,10 @@ function mostrarData(action) {
         media = 800;
     }
     if (graficaUrl !== null && var_ambiente !== undefined) {
+        debugger;
         $.ajax({
             type: 'GET',
-            url: graficaUrl + var_ambiente,
+            url: graficaUrl + moduloId + "/" + var_ambiente,
             success: function (data) {
                 console.log(data);
                 console.log(var_ambiente);

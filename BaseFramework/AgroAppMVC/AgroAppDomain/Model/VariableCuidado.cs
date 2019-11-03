@@ -16,7 +16,7 @@ namespace AgroAppDomain.Model
     {
         public int VariablesCuidadoId { get; set; }
         public int TipoVariableCuidadoId { get; set; }
-        public double ValorCuidado { get; set; }
+        public string ValorCuidado { get; set; }
         public int PlantaId { get; set; }
     
         public virtual Planta Planta { get; set; }

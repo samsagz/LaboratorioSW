@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AgroAppDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AgroAppDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Modulo">
           <Key>
             <PropertyRef Name="ModuloId" />
@@ -13,7 +13,6 @@
           <Property Name="PlantaId" Type="int" />
           <Property Name="NumeroPlantas" Type="int" />
           <Property Name="FechaSiembra" Type="datetime2" Precision="0" />
-          <Property Name="VariablesAmbienteId" Type="int" />
           <Property Name="FechaEstimadaCosecha" Type="datetime2" Precision="0" />
           <Property Name="FechaRealCosecha" Type="datetime2" Precision="0" />
           <Property Name="SolucionNutricional" Type="float" />
@@ -68,7 +67,7 @@
           </Key>
           <Property Name="VariablesCuidadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TipoVariableCuidadoId" Type="int" Nullable="false" />
-          <Property Name="ValorCuidado" Type="float" Nullable="false" />
+          <Property Name="ValorCuidado" Type="nvarchar" MaxLength="400" Nullable="false" />
           <Property Name="PlantaId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="VariablesControl">
@@ -202,8 +201,7 @@
             <End Role="VariablesControl" EntitySet="VariablesControl" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AgroAppDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -279,7 +277,7 @@
           </Key>
           <Property Name="VariablesCuidadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TipoVariableCuidadoId" Type="Int32" Nullable="false" />
-          <Property Name="ValorCuidado" Type="Double" Nullable="false" />
+          <Property Name="ValorCuidado" Type="String" Nullable="false" FixedLength="false" MaxLength="400" Unicode="true" />
           <Property Name="PlantaId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Planta" Relationship="Self.FK_VariableCuidado_Planta" FromRole="VariableCuidado" ToRole="Planta" />
           <NavigationProperty Name="TipoVariableCuidado" Relationship="Self.FK_VariableCuidado_TipoVariableCuidado" FromRole="VariableCuidado" ToRole="TipoVariableCuidado" />
