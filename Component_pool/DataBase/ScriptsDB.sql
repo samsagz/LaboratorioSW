@@ -136,3 +136,10 @@ USE [master]
 GO
 ALTER DATABASE [AgroApp] SET  READ_WRITE 
 GO
+
+INSERT INTO TipoVariableAmbiente (TipoVariableAmbienteId, NombreTipoVariableAmbiente) VALUES
+(1,'Temperatura');
+INSERT INTO TipoVariableAmbiente (TipoVariableAmbienteId, NombreTipoVariableAmbiente) VALUES
+(2,'Humedad');
+INSERT INTO TipoVariableAmbiente (TipoVariableAmbienteId, NombreTipoVariableAmbiente) VALUES
+(3,'Luminosidad');
