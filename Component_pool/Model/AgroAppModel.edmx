@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AgroAppDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AgroAppDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Modulo">
           <Key>
             <PropertyRef Name="ModuloId" />
@@ -13,7 +13,6 @@
           <Property Name="PlantaId" Type="int" />
           <Property Name="NumeroPlantas" Type="int" />
           <Property Name="FechaSiembra" Type="datetime2" Precision="0" />
-          <Property Name="VariablesAmbienteId" Type="int" />
           <Property Name="FechaEstimadaCosecha" Type="datetime2" Precision="0" />
           <Property Name="FechaRealCosecha" Type="datetime2" Precision="0" />
           <Property Name="SolucionNutricional" Type="float" />
@@ -32,13 +31,6 @@
           </Key>
           <Property Name="TipoVariableAmbienteId" Type="int" Nullable="false" />
           <Property Name="NombreTipoVariableAmbiente" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TipoVariableCuidado">
-          <Key>
-            <PropertyRef Name="TipoVariableCuidadoId" />
-          </Key>
-          <Property Name="TipoVariableCuidadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NombreTipoVariableCuidado" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -62,15 +54,9 @@
           <Property Name="Valor" Type="float" Nullable="false" />
           <Property Name="TimeTag" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
-        <EntityType Name="VariableCuidado">
-          <Key>
-            <PropertyRef Name="VariablesCuidadoId" />
-          </Key>
-          <Property Name="VariablesCuidadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TipoVariableCuidadoId" Type="int" Nullable="false" />
-          <Property Name="ValorCuidado" Type="float" Nullable="false" />
-          <Property Name="PlantaId" Type="int" Nullable="false" />
-        </EntityType>
+        <!--B-tables-entity-type-->
+
+
         <EntityType Name="VariablesControl">
           <Key>
             <PropertyRef Name="VariableControlId" />
@@ -116,30 +102,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_VariableCuidado_Planta">
-          <End Role="Planta" Type="Self.Planta" Multiplicity="1" />
-          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Planta">
-              <PropertyRef Name="PlantaId" />
-            </Principal>
-            <Dependent Role="VariableCuidado">
-              <PropertyRef Name="PlantaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VariableCuidado_TipoVariableCuidado">
-          <End Role="TipoVariableCuidado" Type="Self.TipoVariableCuidado" Multiplicity="1" />
-          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoVariableCuidado">
-              <PropertyRef Name="TipoVariableCuidadoId" />
-            </Principal>
-            <Dependent Role="VariableCuidado">
-              <PropertyRef Name="TipoVariableCuidadoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+
         <Association Name="FK_VariablesControl_Planta">
           <End Role="Planta" Type="Self.Planta" Multiplicity="1" />
           <End Role="VariablesControl" Type="Self.VariablesControl" Multiplicity="*" />
@@ -164,15 +127,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--B-tables-association-->
+
         <EntityContainer Name="AgroAppDbModelStoreContainer">
           <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Planta" EntityType="Self.Planta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoVariableAmbiente" EntityType="Self.TipoVariableAmbiente" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TipoVariableCuidado" EntityType="Self.TipoVariableCuidado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VariableAmbiente" EntityType="Self.VariableAmbiente" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="VariableCuidado" EntityType="Self.VariableCuidado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VariablesControl" EntityType="Self.VariablesControl" Schema="dbo" store:Type="Tables" />
+          <!--B-tables-entitySet-->
+
           <AssociationSet Name="FK_Modulo_Planta" Association="Self.FK_Modulo_Planta">
             <End Role="Planta" EntitySet="Planta" />
             <End Role="Modulo" EntitySet="Modulo" />
@@ -185,14 +150,7 @@
             <End Role="TipoVariableAmbiente" EntitySet="TipoVariableAmbiente" />
             <End Role="VariableAmbiente" EntitySet="VariableAmbiente" />
           </AssociationSet>
-          <AssociationSet Name="FK_VariableCuidado_Planta" Association="Self.FK_VariableCuidado_Planta">
-            <End Role="Planta" EntitySet="Planta" />
-            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VariableCuidado_TipoVariableCuidado" Association="Self.FK_VariableCuidado_TipoVariableCuidado">
-            <End Role="TipoVariableCuidado" EntitySet="TipoVariableCuidado" />
-            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
-          </AssociationSet>
+
           <AssociationSet Name="FK_VariablesControl_Planta" Association="Self.FK_VariablesControl_Planta">
             <End Role="Planta" EntitySet="Planta" />
             <End Role="VariablesControl" EntitySet="VariablesControl" />
@@ -201,9 +159,11 @@
             <End Role="TipoVariableAmbiente" EntitySet="TipoVariableAmbiente" />
             <End Role="VariablesControl" EntitySet="VariablesControl" />
           </AssociationSet>
+          <!--B-tables-associationSet-->
+
+
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AgroAppDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -241,14 +201,6 @@
           <NavigationProperty Name="VariableAmbiente" Relationship="Self.FK_VariableAmbiente_TipoVariableAmbiente" FromRole="TipoVariableAmbiente" ToRole="VariableAmbiente" />
           <NavigationProperty Name="VariablesControl" Relationship="Self.FK_VariablesControl_TipoVariableAmbiente" FromRole="TipoVariableAmbiente" ToRole="VariablesControl" />
         </EntityType>
-        <EntityType Name="TipoVariableCuidado">
-          <Key>
-            <PropertyRef Name="TipoVariableCuidadoId" />
-          </Key>
-          <Property Name="TipoVariableCuidadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreTipoVariableCuidado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="VariableCuidado" Relationship="Self.FK_VariableCuidado_TipoVariableCuidado" FromRole="TipoVariableCuidado" ToRole="VariableCuidado" />
-        </EntityType>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="UsuarioId" />
@@ -273,17 +225,6 @@
           <NavigationProperty Name="Modulo" Relationship="Self.FK_VariableAmbiente_Modulo" FromRole="VariableAmbiente" ToRole="Modulo" />
           <NavigationProperty Name="TipoVariableAmbiente" Relationship="Self.FK_VariableAmbiente_TipoVariableAmbiente" FromRole="VariableAmbiente" ToRole="TipoVariableAmbiente" />
         </EntityType>
-        <EntityType Name="VariableCuidado">
-          <Key>
-            <PropertyRef Name="VariablesCuidadoId" />
-          </Key>
-          <Property Name="VariablesCuidadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TipoVariableCuidadoId" Type="Int32" Nullable="false" />
-          <Property Name="ValorCuidado" Type="Double" Nullable="false" />
-          <Property Name="PlantaId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Planta" Relationship="Self.FK_VariableCuidado_Planta" FromRole="VariableCuidado" ToRole="Planta" />
-          <NavigationProperty Name="TipoVariableCuidado" Relationship="Self.FK_VariableCuidado_TipoVariableCuidado" FromRole="VariableCuidado" ToRole="TipoVariableCuidado" />
-        </EntityType>
         <EntityType Name="VariablesControl">
           <Key>
             <PropertyRef Name="VariableControlId" />
@@ -295,6 +236,8 @@
           <NavigationProperty Name="Planta" Relationship="Self.FK_VariablesControl_Planta" FromRole="VariablesControl" ToRole="Planta" />
           <NavigationProperty Name="TipoVariableAmbiente" Relationship="Self.FK_VariablesControl_TipoVariableAmbiente" FromRole="VariablesControl" ToRole="TipoVariableAmbiente" />
         </EntityType>
+        <!--tables-csdl-entityType-->
+
         <Association Name="FK_Modulo_Planta">
           <End Role="Planta" Type="Self.Planta" Multiplicity="0..1" />
           <End Role="Modulo" Type="Self.Modulo" Multiplicity="*" />
@@ -316,18 +259,6 @@
             </Principal>
             <Dependent Role="VariableAmbiente">
               <PropertyRef Name="ModuloId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VariableCuidado_Planta">
-          <End Role="Planta" Type="Self.Planta" Multiplicity="1" />
-          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Planta">
-              <PropertyRef Name="PlantaId" />
-            </Principal>
-            <Dependent Role="VariableCuidado">
-              <PropertyRef Name="PlantaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -367,27 +298,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_VariableCuidado_TipoVariableCuidado">
-          <End Role="TipoVariableCuidado" Type="Self.TipoVariableCuidado" Multiplicity="1" />
-          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoVariableCuidado">
-              <PropertyRef Name="TipoVariableCuidadoId" />
-            </Principal>
-            <Dependent Role="VariableCuidado">
-              <PropertyRef Name="TipoVariableCuidadoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <!--tables-csdl-association-->
+
         <EntityContainer Name="AgroAppDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Modulo" EntityType="Self.Modulo" />
           <EntitySet Name="Planta" EntityType="Self.Planta" />
           <EntitySet Name="TipoVariableAmbiente" EntityType="Self.TipoVariableAmbiente" />
-          <EntitySet Name="TipoVariableCuidado" EntityType="Self.TipoVariableCuidado" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
           <EntitySet Name="VariableAmbiente" EntityType="Self.VariableAmbiente" />
-          <EntitySet Name="VariableCuidado" EntityType="Self.VariableCuidado" />
           <EntitySet Name="VariablesControl" EntityType="Self.VariablesControl" />
+          <!--tables-csdl-entitySet-->
+          
           <AssociationSet Name="FK_Modulo_Planta" Association="Self.FK_Modulo_Planta">
             <End Role="Planta" EntitySet="Planta" />
             <End Role="Modulo" EntitySet="Modulo" />
@@ -395,10 +316,6 @@
           <AssociationSet Name="FK_VariableAmbiente_Modulo" Association="Self.FK_VariableAmbiente_Modulo">
             <End Role="Modulo" EntitySet="Modulo" />
             <End Role="VariableAmbiente" EntitySet="VariableAmbiente" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VariableCuidado_Planta" Association="Self.FK_VariableCuidado_Planta">
-            <End Role="Planta" EntitySet="Planta" />
-            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
           </AssociationSet>
           <AssociationSet Name="FK_VariablesControl_Planta" Association="Self.FK_VariablesControl_Planta">
             <End Role="Planta" EntitySet="Planta" />
@@ -412,10 +329,8 @@
             <End Role="TipoVariableAmbiente" EntitySet="TipoVariableAmbiente" />
             <End Role="VariablesControl" EntitySet="VariablesControl" />
           </AssociationSet>
-          <AssociationSet Name="FK_VariableCuidado_TipoVariableCuidado" Association="Self.FK_VariableCuidado_TipoVariableCuidado">
-            <End Role="TipoVariableCuidado" EntitySet="TipoVariableCuidado" />
-            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
-          </AssociationSet>
+          <!--tables-csdl-associationSet-->
+
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -453,14 +368,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TipoVariableCuidado">
-            <EntityTypeMapping TypeName="AgroAppDbModel.TipoVariableCuidado">
-              <MappingFragment StoreEntitySet="TipoVariableCuidado">
-                <ScalarProperty Name="TipoVariableCuidadoId" ColumnName="TipoVariableCuidadoId" />
-                <ScalarProperty Name="NombreTipoVariableCuidado" ColumnName="NombreTipoVariableCuidado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="AgroAppDbModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
@@ -485,16 +392,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VariableCuidado">
-            <EntityTypeMapping TypeName="AgroAppDbModel.VariableCuidado">
-              <MappingFragment StoreEntitySet="VariableCuidado">
-                <ScalarProperty Name="VariablesCuidadoId" ColumnName="VariablesCuidadoId" />
-                <ScalarProperty Name="TipoVariableCuidadoId" ColumnName="TipoVariableCuidadoId" />
-                <ScalarProperty Name="ValorCuidado" ColumnName="ValorCuidado" />
-                <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VariablesControl">
             <EntityTypeMapping TypeName="AgroAppDbModel.VariablesControl">
               <MappingFragment StoreEntitySet="VariablesControl">
@@ -505,6 +402,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <!--tables-csdl-entitySetMapping-->
+
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
