@@ -47,11 +47,15 @@ Los componentes reutilizables se encuentran en la carpeta
 ## Matriz tecnológica
 
 
-|                   | Tecnologia          | Recurso o libreria               |
+|                   | Tecnologia          | Recurso o libreria                                 |
 | -- | -- | -- |
-| Cliente           | HTML, CSS           | Bootstrap, jquery                |
-| Codigo de negocio | .Net C#             | C# MVC con Entity Framework      |
-| BackEnd           | SQL Express 2017 DB | N/A                              |
+| Cliente           | HTML, CSS           | Bootstrap, jquery                                  |
+| Codigo de negocio | .Net C#             | C# MVC con Entity Framework                        |
+| BackEnd           | SQL Express 2017 DB | N/A                                                |
+| Simulador         | XML, Java           | Androidx 1.1.3,Android material 1.0.0,Retrofit 2   |
+| Arduino           | C++                 | ESP 8266, Ethernet, Wire, SPI, ArduinoJson, ESP8266HTTPClient, ESP8266WiFi, DHT|
+
+
 
 
 
