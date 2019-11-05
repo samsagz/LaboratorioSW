@@ -4,7 +4,15 @@ VariablesControlView.zip - AgroAppMVC/AgroAppMVC/Views/
 VariableCuidadoView.zip - AgroAppMVC/AgroAppMVC/Views/
 TipoVariableCuidadoView.zip - AgroAppMVC/AgroAppMVC/Views/
 Usuarios.zip - AgroAppMVC/AgroAppMVC/Views/
+
 Dashboard.cshtml - AgroAppMVC/AgroAppMVC/Views/Home/Dashboard.cshtml
+AgroAppMVC/AgroAppMVC/Views/Home/Dashboard.cshtml
+Site.css - AgroAppMVC/AgroAppMVC/Content/Site.css
+About.cshtml - AgroAppMVC/AgroAppMVC/Views/Home/About.cshtml
+Contact.cshtml - AgroAppMVC/AgroAppMVC/Views/Home/Contact.cshtml
+Index.cshtml - AgroAppMVC/AgroAppMVC/Views/Home/Index.cshtml
+
+
 _Layout.cshtml - AgroAppMVC/AgroAppMVC/Views/Shared/_Layout.cshtml
 
 VariableAmbientesController.cs - AgroAppMVC/AgroAppMVC/Controllers/VariableAmbientesController.cs
@@ -27,7 +35,10 @@ Dashboard.cs - AgroAppMVC/AgroAppDomain/Dashboard.cs
 
 ScriptsDB.sql - DB/ScriptsDB.sql
 Simulador.zip - Simulador/
+Proyecto_ESP8266.zip - Arduino/
 
 
-Componentes
+--Componentes--
 ControlCuidado
+ControlAmbiente
+Dashboard

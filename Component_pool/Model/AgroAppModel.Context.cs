@@ -27,10 +27,7 @@ namespace AgroAppDomain.Model
     
         public virtual DbSet<Modulo> Modulo { get; set; }
         public virtual DbSet<Planta> Planta { get; set; }
-        public virtual DbSet<TipoVariableAmbiente> TipoVariableAmbiente { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
-        public virtual DbSet<VariableAmbiente> VariableAmbiente { get; set; }
-        public virtual DbSet<VariablesControl> VariablesControl { get; set; }
         /*B-model-context*/
 
     }

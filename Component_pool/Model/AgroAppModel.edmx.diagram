@@ -7,16 +7,11 @@
       <Diagram DiagramId="451b6e16635b4f10ab81dd989721a052" Name="Diagram1">
         <EntityTypeShape EntityType="AgroAppDbModel.Modulo" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="AgroAppDbModel.Planta" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AgroAppDbModel.TipoVariableAmbiente" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AgroAppDbModel.Usuario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AgroAppDbModel.VariableAmbiente" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AgroAppDbModel.VariablesControl" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
         <AssociationConnector Association="AgroAppDbModel.FK_Modulo_Planta" ManuallyRouted="false" />
         <AssociationConnector Association="AgroAppDbModel.FK_VariableAmbiente_Modulo" ManuallyRouted="false" />
-        <AssociationConnector Association="AgroAppDbModel.FK_VariablesControl_Planta" ManuallyRouted="false" />
-        <AssociationConnector Association="AgroAppDbModel.FK_VariableAmbiente_TipoVariableAmbiente" ManuallyRouted="false" />
-        <AssociationConnector Association="AgroAppDbModel.FK_VariablesControl_TipoVariableAmbiente" ManuallyRouted="false" />
         <!--B-tables-diagram-->
+
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

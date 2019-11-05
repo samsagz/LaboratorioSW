@@ -73,6 +73,38 @@ Fragment ControlCuidado-Edmx3 {
         [/ALTERCODE-FRAG]
 }
 
+Fragment ControlAmbiente-Edmx31 { 
+   Action: add
+   Priority: high
+   FragmentationPoints: tables-associationSet
+   PointBracketsLan: html
+   Destinations: Model-AgroAppModel
+   SourceCode: 
+        [ALTERCODE-FRAG]
+          <AssociationSet Name="FK_VariableCuidado_Planta" Association="Self.FK_VariableCuidado_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariableCuidado_TipoVariableCuidado" Association="Self.FK_VariableCuidado_TipoVariableCuidado">
+            <End Role="TipoVariableCuidado" EntitySet="TipoVariableCuidado" />
+            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
+          </AssociationSet>
+        [/ALTERCODE-FRAG]
+}
+
+Fragment ControlAmbiente-Edmx9 { 
+   Action: add
+   Priority: high
+   FragmentationPoints: tables-csdl-PlantaNavigationProperty
+   PointBracketsLan: html
+   Destinations: Model-AgroAppModel
+   SourceCode: 
+        [ALTERCODE-FRAG]
+        <NavigationProperty Name="VariableCuidado" Relationship="Self.FK_VariableCuidado_Planta" FromRole="Planta" ToRole="VariableCuidado" />
+        <NavigationProperty Name="VariablesControl" Relationship="Self.FK_VariablesControl_Planta" FromRole="Planta" ToRole="VariablesControl" />
+        [/ALTERCODE-FRAG]
+}
+
 Fragment ControlCuidado-Edmx4 { 
    Action: add
    Priority: high

@@ -125,10 +125,7 @@ CREATE TABLE [dbo].[Planta](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/*B-tables*/
-
-
-
+/*B-tables-sql*/
 
 ALTER TABLE [dbo].[Modulo]  WITH CHECK ADD  CONSTRAINT [FK_Modulo_Planta] FOREIGN KEY([PlantaId])
 REFERENCES [dbo].[Planta] ([PlantaId])
