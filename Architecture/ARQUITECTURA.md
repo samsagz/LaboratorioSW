@@ -3,13 +3,13 @@ La arquitectura seleccionada para la realización de la aplicación e interacci�
 **Cliente/Servidor** relacionado con conceptos de **N-layer**¸ con el fin de ser más descriptivos al momento de detallar 
 cada uno de los diferentes elementos y tecnologías que están adecuados a la arquitectura propuesta.
 
-![Arquitectura propuesta](https://eafitrequisitos.s3.us-east-2.amazonaws.com/arquitectura_propuesta.png)
+![Arquitectura propuesta](https://eafitrequisitos.s3.us-east-2.amazonaws.com/arquitectura.png)
 
-## Capa de Presentación - Cliente Web
+## Capa de Presentación - Cliente Web - Cliente Móvil
 
 La capa de presentación definida para la presente arquitectura es la encargada de mostrar la información al usuario y cliente 
 final e interpretar las diferentes acciones realizadas por estos. Se evidencian vistas y controladores necesarios 
-para implementar el desarrollo “frontend”.
+para implementar el desarrollo “frontend”. Se subdividen en dos clientes, uno web que permite visualizar el monitoreo del estado de cada módulo según sus variables de ambiente y control, y otro móvil con el fin de simular de forma aleatorio los distintos estados de las variables de ambiente de un módulo predeterminado
 
 ### Componentes visuales (Vistas IU)
 Estos componentes son los que ofrecen un mecanismo para que los usuarios utilicen la aplicación. Por lo tanto, son los 
@@ -53,9 +53,24 @@ del negocio que se llevará a cabo en la aplicación.
 
 ## Capa de infraestructura
 
-Capa transversal que da soporte a la capa de presentación y lógica de datos, está definida por una tecnología concreta para 
-desempeñar de forma idónea sus tareas, teniendo en cuenta el repositorio donde se va a alojar la solución y procesos de 
-integración continua en la medida de lo posible. 
+Capa transversal que da soporte a la capa de presentación y lógica de datos, está definida por una tecnología en un proveedor en la nube para desempeñar de forma idónea sus tareas, teniendo en cuenta el repositorio donde se va a alojar la solución y procesos de integración continua en la medida de lo posible. 
 Los diferentes tipos/aspectos horizontales más comunes, son: Seguridad (Autenticación, Autorización y Validación) y tareas de 
 gestión de operaciones (políticas, logging,  monitorización, configuración,). Esta capa engloba en gran parte aspectos que 
-tienen que ver con la calidad del servicio. 
+tienen que ver con la calidad del servicio.
+
+## Sistema externo
+
+PARTE LÓGICA ARDUINO: Esta parte se encarga de consumir servicios, para guardar la información capturada por los sensores y obtener las acciones que debe de realizar los actuadores. 
+
+PARTE FÍSICA ARDUINO: Son todos los periféricos que se encargan de controlar, medir y actuar sobre el ambiente.
+
+- Sensor de temperatura: Se encarga de medir la temperatura de ambiente cada determinado tiempo. Esta temperatura se guarda y se procesa por medio de la Parte Lógica.
+Este sensor estará conectado al Arduino.
+
+- Sensor Humedad: Se encarga de medir la humedad del ambiente. Los valores medidos son evaluados y guardados por medio de la parte lógica. 
+Este sensor estará conectado al Arduino.
+
+- Arduino (ESP 8266): Se encarga de compilar el código ejecutado desde el IDE Arduino, esta tarjeta permite la utilización de tecnología Wifi por lo que será mucho más sencillo integrar con la aplicación base.
+
+
+
