@@ -1,0 +1,28 @@
+TipoVariableAmbientesView.zip - AgroAppMVC/AgroAppMVC/Views/
+VariableAmbientesView.zip - AgroAppMVC/AgroAppMVC/Views/
+VariablesControlView.zip - AgroAppMVC/AgroAppMVC/Views/
+VariableCuidadoView.zip - AgroAppMVC/AgroAppMVC/Views/
+TipoVariableCuidadoView.zip - AgroAppMVC/AgroAppMVC/Views/
+Usuarios.zip - AgroAppMVC/AgroAppMVC/Views/
+Dashboard.cshtml - AgroAppMVC/AgroAppMVC/Views/Home/
+_Layout.cshtml - AgroAppMVC/AgroAppMVC/Views/Shared/
+
+VariableAmbientesController.cs - AgroAppMVC/AgroAppMVC/Controllers/
+TipoVariableAmbientesController.cs - AgroAppMVC/AgroAppMVC/Controllers/
+VariablesControlsController.cs - AgroAppMVC/AgroAppMVC/Controllers/
+TipoVariableCuidadoesController.cs - AgroAppMVC/AgroAppMVC/Controllers/
+VariableCuidadoesController.cs - AgroAppMVC/AgroAppMVC/Controllers/
+UsuariosController.cs - AgroAppMVC/AgroAppMVC/Controllers/
+HomeController.cs - AgroAppMVC/AgroAppMVC/Controllers/
+
+AgroAppMVC.csproj - AgroAppMVC/AgroAppMVC/
+AgroAppDomain.csproj AgroAppMVC/AgroAppDomain/
+
+AgroAppModel.Context.cs - AgroAppMVC/AgroAppDomain/Model/
+AgroAppModel.edmx - AgroAppMVC/AgroAppDomain/Model/
+AgroAppModel.edmx.diagram - AgroAppMVC/AgroAppDomain/Model/
+
+Dashboard.cs - AgroAppMVC/AgroAppDomain/
+
+ScriptsDB.sql - DB/
+Simulador.zip - Simulador/
