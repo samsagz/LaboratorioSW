@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:id="@+id/intervaloContainer"
+        android:layout_height="wrap_content"
+        android:hint="Segundos"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+    <EditText
+        android:id="@+id/intervalo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+   />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:id="@+id/moduloIdContainer"
+        android:layout_height="wrap_content"
+        android:hint="ModuloId"
+        app:layout_constraintTop_toBottomOf="@id/intervaloContainer"
+        app:layout_constraintLeft_toLeftOf="parent">
+    <EditText
+        android:id="@+id/moduloId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="1"
+        app:layout_constraintTop_toBottomOf="@id/intervaloContainer"
+        app:layout_constraintLeft_toLeftOf="parent"/>  </com.google.android.material.textfield.TextInputLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/variableAmbienteContainer"
+    android:orientation="vertical"
+    app:layout_constraintTop_toBottomOf="@id/moduloIdContainer"
+    app:layout_constraintLeft_toLeftOf="parent"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="iniciar"
+        android:id="@+id/send"
+        app:layout_constraintTop_toBottomOf="@id/variableAmbienteContainer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
