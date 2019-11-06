@@ -1,4 +1,4 @@
-## Instalación
+# Instalación
 
 Dependiendo del compilado que se genere, se crean archivos proyectos para diferentes plataformas, pero el más grande sería el proyecto AgroAppMVC, como dentro del derivado no están incluidas las librerías o paquetes del sistema es necesario antes de ejecutar, actualizar todas estas.
 -	Paso 1: Ingresar a la Carpeta *AgroAppMVC*
@@ -7,4 +7,4 @@ Dependiendo del compilado que se genere, se crean archivos proyectos para difere
 -	Paso 4: En la parte superior hacer click donde dice *Restaurar* paquetes.
 -	Paso 5: Luego de esto ya se puede ejecutar sin problemas la solución.
 
-# Tanto para el caso de la DB y de Arduino es ejecutar el archivo que se genera en su respectivo ide.
+## Tanto para el caso de la DB y de Arduino es ejecutar el archivo que se genera en su respectivo ide.
