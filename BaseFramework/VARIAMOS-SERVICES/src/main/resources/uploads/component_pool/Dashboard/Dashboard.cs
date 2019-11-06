@@ -34,53 +34,9 @@ namespace AgroAppDomain
                         { "Fecha Real",  moduloDB.FechaRealCosecha == null? "Pendiente":((DateTime)moduloDB.FechaRealCosecha).ToString("dd/MM/yyyy") },
                         { "Solución Nutricional", moduloDB.SolucionNutricional?.ToString() }
                     };
-            result.variables_control = moduloDB.Planta.VariablesControl
-                                    .ToDictionary(a => a.TipoVariableAmbiente.NombreTipoVariableAmbiente,
-                                                    b => b.VariableControl.ToString(),
-                                                    StringComparer.OrdinalIgnoreCase);
-
-            result.variables_cuidado = moduloDB.Planta.VariableCuidado
-                                    .ToDictionary(a => a.TipoVariableCuidado.NombreTipoVariableCuidado,
-                                                    b => b.ValorCuidado,
-                                                    StringComparer.OrdinalIgnoreCase);
-
+            /*B-control-variables*/
 
             return result;
-
-            /*
-            //frijol
-            var modulo = new ModuloResult
-            {
-                id = 1,
-                nombre = "Frijol",
-                modulos = new Dictionary<string, int>
-                {
-                    {"Frijol",1 },
-                    {"Zanahoria", 2 }
-                },
-                info_general = new Dictionary<string, string>
-                    {
-                        { "Cantidad de Plantas", "12" },
-                        { "Fecha de Siembra", "10/10/2019" },
-                        { "Fecha estimada", "15/10/2019" },
-                        { "Fecha Real", "30/10/2019" },
-                        { "Solución Nutricional", "Lo nutricional del Frijol" }
-                    },
-                variables_control = new Dictionary<string, string>
-                    {
-                        { "Luz" , 18 },
-                        { "Temperatura", 25 },
-                        { "Humedad" , 39 }
-                    },
-                variables_cuidado = new Dictionary<string, string>
-                    {
-                        { "Pesticidas" , "Una vez por semana" },
-                        { "Riego" , "Día por medio"},
-                        { "Fertilizantes" , "Dos veces por semana" }
-                    }
-
-            };
-            */
 
         }
 
@@ -88,31 +44,13 @@ namespace AgroAppDomain
         {
             var moduldoDB = _db.Modulo.First(a => a.ModuloId == id);
 
-            var result = new ValoresAmbienteResult
+            ValoresAmbienteResult result = new ValoresAmbienteResult
             {
-                id = moduldoDB.ModuloId,
-                variables_ambiente = moduldoDB.VariableAmbiente.GroupBy(g => g.TipoVariableAmbienteId)
-                                                .Select(s => s.OrderByDescending(odb => odb.TimeTag)
-                                                            .FirstOrDefault()
-                                                        )
-                                                .ToDictionary(
-                                                            a => a.TipoVariableAmbiente.NombreTipoVariableAmbiente,
-                                                            b => b.Valor,
-                                                            StringComparer.OrdinalIgnoreCase)
+                id = moduldoDB.ModuloId
+                /*B-variables-ambiente*/
+                ,variables_ambiente = new Dictionary<string,double>()
+                /*E-variables-ambiente*/
             };
-
-            /*
-            var result = new ValoresAmbienteResult
-            {
-                id = 1,
-                variables_ambiente = new Dictionary<string, double>
-                {
-                    {"Luz",21.3 },
-                    {"Temperatura",30.1 },
-                    {"Humedad",2.3 },
-                }
-            };
-            */
 
             return result;
         }
@@ -121,38 +59,11 @@ namespace AgroAppDomain
         {
             var moduldoDB = _db.Modulo.First(a => a.ModuloId == id);
 
-            var result = moduldoDB.VariableAmbiente
-                .Where(a => a.TipoVariableAmbiente.NombreTipoVariableAmbiente == tipoVariable)
-                .OrderByDescending(a => a.TimeTag)
-                .Select(b => new GraficaAmbienteResult
-                {
-                    captura = b.VariableAmbienteId.ToString(),
-                    valor = b.Valor
-                }).Take(10).ToList();
-
+            var result = new List<GraficaAmbienteResult>();
+            /*B-graficar-ambiente*/
+            
             return result;
 
-            /*
-            var result = new List<GraficaAmbienteResult>
-            {
-                new GraficaAmbienteResult {
-                    captura= "1",
-                    valor= 100
-                },
-                new GraficaAmbienteResult {
-                    captura= "2",
-                    valor= 60
-                },
-                new GraficaAmbienteResult {
-                    captura= "3",
-                    valor= 30
-                },
-                new GraficaAmbienteResult {
-                    captura= "4",
-                    valor= 110
-                }
-            };
-            */
         }
 
     }

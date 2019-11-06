@@ -27,7 +27,7 @@
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_root>
-    <concrete label="Simulador" type="concrete" selected="true" id="86">
+    <concrete label="Simulador" type="concrete" selected="false" id="86">
       <mxCell style="" parent="feature" vertex="1">
         <mxGeometry x="770" y="270" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -188,30 +188,40 @@
       </mxCell>
     </rel_concrete_abstract>
     <concrete label="ProjectSolution" type="concrete" selected="true" id="918">
-      <mxCell style="" vertex="1" parent="feature">
+      <mxCell style="" parent="feature" vertex="1">
         <mxGeometry y="230" width="100" height="35" as="geometry"/>
       </mxCell>
     </concrete>
     <rel_concrete_abstract type="relation" relType="mandatory" id="919">
-      <mxCell edge="1" parent="feature" source="918" target="109">
+      <mxCell parent="feature" source="918" target="109" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_abstract>
-    <concrete label="Arduino" type="concrete" selected="false" id="933">
-      <mxCell style="" vertex="1" parent="feature">
+    <concrete label="Arduino" type="concrete" selected="true" id="933">
+      <mxCell style="" parent="feature" vertex="1">
         <mxGeometry x="470" y="400" width="100" height="35" as="geometry"/>
       </mxCell>
     </concrete>
     <rel_concrete_abstract type="relation" relType="optional" id="934">
-      <mxCell edge="1" parent="feature" source="933" target="87">
+      <mxCell parent="feature" source="933" target="87" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_abstract>
     <rel_concrete_concrete type="relation" relType="requires" id="935">
-      <mxCell edge="1" parent="feature" source="933" target="5">
+      <mxCell parent="feature" source="933" target="5" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_concrete>
+    <concrete label="AgroApi" type="concrete" selected="true" id="944">
+      <mxCell style="" vertex="1" parent="feature">
+        <mxGeometry x="140" y="450" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <rel_concrete_abstract type="relation" relType="mandatory" id="945">
+      <mxCell edge="1" parent="feature" source="944" target="109">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_abstract>
     <mxCell id="component" parent="0" visible="0"/>
     <component label="Frijol" type="component" id="793">
       <mxCell style="shape=component" parent="component" vertex="1">
@@ -754,80 +764,125 @@
       </mxCell>
     </file>
     <component label="ProjectSolution" type="component" id="920">
-      <mxCell style="shape=component" vertex="1" parent="component">
+      <mxCell style="shape=component" parent="component" vertex="1">
         <mxGeometry x="510" y="610" width="100" height="40" as="geometry"/>
       </mxCell>
     </component>
     <rel_file_component type="relation" id="921">
-      <mxCell edge="1" parent="component" source="916" target="920">
+      <mxCell parent="component" source="916" target="920" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_file_component>
     <file label="Dashboard-SiteCss" type="file" filename="Site.css" destination="AgroAppMVC/AgroAppMVC/Content/Site.css" id="923">
-      <mxCell style="shape=file" vertex="1" parent="component">
+      <mxCell style="shape=file" parent="component" vertex="1">
         <mxGeometry x="340" y="470" width="100" height="40" as="geometry"/>
       </mxCell>
     </file>
     <file label="Dashboard-Index" type="file" filename="Index.cshtml" destination="AgroAppMVC/AgroAppMVC/Views/Home/Index.cshtml" id="924">
-      <mxCell style="shape=file" vertex="1" parent="component">
+      <mxCell style="shape=file" parent="component" vertex="1">
         <mxGeometry x="760" y="470" width="100" height="40" as="geometry"/>
       </mxCell>
     </file>
     <file label="Dashboard-Contact" type="file" filename="Contact.cshtml" destination="AgroAppMVC/AgroAppMVC/Views/Home/Contact.cshtml" id="925">
-      <mxCell style="shape=file" vertex="1" parent="component">
+      <mxCell style="shape=file" parent="component" vertex="1">
         <mxGeometry x="610" y="470" width="100" height="40" as="geometry"/>
       </mxCell>
     </file>
     <file label="Dashboard-About" type="file" filename="About.cshtml" destination="AgroAppMVC/AgroAppMVC/Views/Home/About.cshtml" id="926">
-      <mxCell style="shape=file" vertex="1" parent="component">
+      <mxCell style="shape=file" parent="component" vertex="1">
         <mxGeometry x="480" y="470" width="100" height="40" as="geometry"/>
       </mxCell>
     </file>
     <rel_file_component type="relation" id="927">
-      <mxCell edge="1" parent="component" source="923" target="816">
+      <mxCell parent="component" source="923" target="816" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_file_component>
     <rel_file_component type="relation" id="928">
-      <mxCell edge="1" parent="component" source="926" target="816">
+      <mxCell parent="component" source="926" target="816" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_file_component>
     <rel_file_component type="relation" id="929">
-      <mxCell edge="1" parent="component" source="925" target="816">
+      <mxCell parent="component" source="925" target="816" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_file_component>
     <rel_file_component type="relation" id="930">
-      <mxCell edge="1" parent="component" source="924" target="816">
+      <mxCell parent="component" source="924" target="816" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_file_component>
     <custom label="custom" type="custom" id="931">
-      <mxCell style="shape=custom" vertex="1" parent="component">
+      <mxCell style="shape=custom" parent="component" vertex="1">
         <mxGeometry x="260" y="420" width="100" height="40" as="geometry"/>
       </mxCell>
     </custom>
     <rel_custom_component type="relation" id="932">
-      <mxCell edge="1" parent="component" source="931" target="816">
+      <mxCell parent="component" source="931" target="816" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_custom_component>
     <component label="Arduino" type="component" id="936">
-      <mxCell style="shape=component" vertex="1" parent="component">
+      <mxCell style="shape=component" parent="component" vertex="1">
         <mxGeometry x="330" y="20" width="100" height="40" as="geometry"/>
       </mxCell>
     </component>
     <file label="Arduino-inocode" type="file" filename="Proyecto_ESP8266.zip" destination="Arduino/" id="937">
-      <mxCell style="shape=file" vertex="1" parent="component">
+      <mxCell style="shape=file" parent="component" vertex="1">
         <mxGeometry x="350" y="90" width="100" height="40" as="geometry"/>
       </mxCell>
     </file>
     <rel_file_component type="relation" id="938">
-      <mxCell edge="1" parent="component" source="937" target="936">
+      <mxCell parent="component" source="937" target="936" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_file_component>
+    <fragment label="ControlCuidado-Dashboard" type="fragment" filename="Dashboard.frag" id="940">
+      <mxCell style="shape=fragment" vertex="1" parent="component">
+        <mxGeometry x="260" y="1400" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </fragment>
+    <rel_fragment_component type="relation" id="941">
+      <mxCell edge="1" parent="component" source="940" target="841">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_fragment_component>
+    <fragment label="ControlAmbiente-Dashboard" type="fragment" filename="Dashboard.frag" id="942">
+      <mxCell style="shape=fragment" vertex="1" parent="component">
+        <mxGeometry x="30" y="2020" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </fragment>
+    <rel_fragment_component type="relation" id="943">
+      <mxCell edge="1" parent="component" source="942" target="875">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_fragment_component>
+    <component label="AgroApi" type="component" id="946">
+      <mxCell style="shape=component" vertex="1" parent="component">
+        <mxGeometry x="580" y="40" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </component>
+    <file label="AgroApi-Class1" type="file" filename="Class1.cs" destination="AgroAppMVC/AgroAppDomain/Class1.cs" id="947">
+      <mxCell style="shape=file" vertex="1" parent="component">
+        <mxGeometry x="620" y="110" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </file>
+    <rel_file_component type="relation" id="948">
+      <mxCell edge="1" parent="component" source="947" target="946">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_file_component>
+    <fragment label="ControlAmbiente-Class1" type="fragment" filename="Class1.frag" id="950">
+      <mxCell style="shape=fragment" vertex="1" parent="component">
+        <mxGeometry x="370" y="1900" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </fragment>
+    <rel_fragment_component type="relation" id="951">
+      <mxCell edge="1" parent="component" source="950" target="875">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_fragment_component>
     <mxCell id="binding_feature_component" parent="0" visible="0"/>
     <concrete label="ControlAmbiente" type="concrete" selected="true" id="clon5">
       <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
@@ -844,7 +899,7 @@
         <mxGeometry x="240" y="1070" width="100" height="35" as="geometry"/>
       </mxCell>
     </concrete>
-    <concrete label="Simulador" type="concrete" selected="true" id="clon86">
+    <concrete label="Simulador" type="concrete" selected="false" id="clon86">
       <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
         <mxGeometry x="246.5" y="923" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -1050,32 +1105,47 @@
       </mxCell>
     </rel_concrete_component>
     <concrete label="ProjectSolution" type="concrete" selected="true" id="clon918">
-      <mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
         <mxGeometry x="400" y="250" width="100" height="35" as="geometry"/>
       </mxCell>
     </concrete>
     <component label="ProjectSolution" type="component" id="clon920">
-      <mxCell style="shape=component;fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+      <mxCell style="shape=component;fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
         <mxGeometry x="230" y="250" width="100" height="40" as="geometry"/>
       </mxCell>
     </component>
     <rel_concrete_component type="relation" id="922">
-      <mxCell edge="1" parent="binding_feature_component" source="clon918" target="clon920">
+      <mxCell parent="binding_feature_component" source="clon918" target="clon920" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_component>
-    <concrete label="Arduino" type="concrete" selected="false" id="clon933">
-      <mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+    <concrete label="Arduino" type="concrete" selected="true" id="clon933">
+      <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
         <mxGeometry x="510" y="100" width="100" height="35" as="geometry"/>
       </mxCell>
     </concrete>
     <component label="Arduino" type="component" id="clon936">
-      <mxCell style="shape=component;fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+      <mxCell style="shape=component;fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
         <mxGeometry x="370" y="100" width="100" height="40" as="geometry"/>
       </mxCell>
     </component>
     <rel_concrete_component type="relation" id="939">
-      <mxCell edge="1" parent="binding_feature_component" source="clon933" target="clon936">
+      <mxCell parent="binding_feature_component" source="clon933" target="clon936" edge="1">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </rel_concrete_component>
+    <concrete label="AgroApi" type="concrete" selected="true" id="clon944">
+      <mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="540" y="20" width="100" height="35" as="geometry"/>
+      </mxCell>
+    </concrete>
+    <component label="AgroApi" type="component" id="clon946">
+      <mxCell style="shape=component;fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        <mxGeometry x="400" y="20" width="100" height="40" as="geometry"/>
+      </mxCell>
+    </component>
+    <rel_concrete_component type="relation" id="949">
+      <mxCell edge="1" parent="binding_feature_component" source="clon944" target="clon946">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_component>

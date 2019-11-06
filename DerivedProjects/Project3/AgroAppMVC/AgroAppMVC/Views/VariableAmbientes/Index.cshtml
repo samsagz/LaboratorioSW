@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AgroAppMVC.Models.VariableAmbiente>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeTag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modulo.ModuloId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoVariableAmbiente.NombreTipoVariableAmbiente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeTag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modulo.ModuloId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoVariableAmbiente.NombreTipoVariableAmbiente)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VariableAmbienteId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VariableAmbienteId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VariableAmbienteId })
+        </td>
+    </tr>
+}
+
+</table>

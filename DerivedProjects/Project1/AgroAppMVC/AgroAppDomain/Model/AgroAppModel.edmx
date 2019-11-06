@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AgroAppDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="ModuloId" />
+          </Key>
+          <Property Name="ModuloId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlantaId" Type="int" />
+          <Property Name="NumeroPlantas" Type="int" />
+          <Property Name="FechaSiembra" Type="datetime2" Precision="0" />
+          <Property Name="FechaEstimadaCosecha" Type="datetime2" Precision="0" />
+          <Property Name="FechaRealCosecha" Type="datetime2" Precision="0" />
+          <Property Name="SolucionNutricional" Type="float" />
+        </EntityType>
+        <EntityType Name="Planta">
+          <Key>
+            <PropertyRef Name="PlantaId" />
+          </Key>
+          <Property Name="PlantaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombrePlanta" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SemanasCosecha" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Name="UsuarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cedula" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Permiso" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Clave" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--B-tables-entity-type-->
+
+<!--Code injected by: ControlCuidado-Edmx1-->
+<EntityType Name="TipoVariableCuidado">
+          <Key>
+            <PropertyRef Name="TipoVariableCuidadoId" />
+          </Key>
+          <Property Name="TipoVariableCuidadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreTipoVariableCuidado" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VariableCuidado">
+          <Key>
+            <PropertyRef Name="VariablesCuidadoId" />
+          </Key>
+          <Property Name="VariablesCuidadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoVariableCuidadoId" Type="int" Nullable="false" />
+          <Property Name="ValorCuidado" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="PlantaId" Type="int" Nullable="false" />
+        </EntityType>
+<!--Code injected by: ControlCuidado-Edmx1-->
+
+
+        <Association Name="FK_Modulo_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="0..1" />
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="Modulo">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--B-tables-association-->
+
+<!--Code injected by: ControlCuidado-Edmx2-->
+<Association Name="FK_VariableCuidado_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="1" />
+          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="VariableCuidado">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariableCuidado_TipoVariableCuidado">
+          <End Role="TipoVariableCuidado" Type="Self.TipoVariableCuidado" Multiplicity="1" />
+          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVariableCuidado">
+              <PropertyRef Name="TipoVariableCuidadoId" />
+            </Principal>
+            <Dependent Role="VariableCuidado">
+              <PropertyRef Name="TipoVariableCuidadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+<!--Code injected by: ControlCuidado-Edmx2-->
+
+
+        <EntityContainer Name="AgroAppDbModelStoreContainer">
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Planta" EntityType="Self.Planta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <!--B-tables-entitySet-->
+
+<!--Code injected by: ControlCuidado-Edmx3-->
+<EntitySet Name="TipoVariableCuidado" EntityType="Self.TipoVariableCuidado" Schema="dbo" store:Type="Tables" />
+        <EntitySet Name="VariableCuidado" EntityType="Self.VariableCuidado" Schema="dbo" store:Type="Tables" />
+<!--Code injected by: ControlCuidado-Edmx3-->
+
+
+          <AssociationSet Name="FK_Modulo_Planta" Association="Self.FK_Modulo_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="Modulo" EntitySet="Modulo" />
+          </AssociationSet>
+          <!--B-tables-associationSet-->
+
+<!--Code injected by: ControlCuidado-Edmx31-->
+<AssociationSet Name="FK_VariableCuidado_Planta" Association="Self.FK_VariableCuidado_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VariableCuidado_TipoVariableCuidado" Association="Self.FK_VariableCuidado_TipoVariableCuidado">
+            <End Role="TipoVariableCuidado" EntitySet="TipoVariableCuidado" />
+            <End Role="VariableCuidado" EntitySet="VariableCuidado" />
+          </AssociationSet>
+<!--Code injected by: ControlCuidado-Edmx31-->
+
+
+
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AgroAppDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="ModuloId" />
+          </Key>
+          <Property Name="ModuloId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlantaId" Type="Int32" />
+          <Property Name="NumeroPlantas" Type="Int32" />
+          <Property Name="FechaSiembra" Type="DateTime" Precision="0" />
+          <Property Name="FechaEstimadaCosecha" Type="DateTime" Precision="0" />
+          <Property Name="FechaRealCosecha" Type="DateTime" Precision="0" />
+          <Property Name="SolucionNutricional" Type="Double" />
+          <NavigationProperty Name="Planta" Relationship="Self.FK_Modulo_Planta" FromRole="Modulo" ToRole="Planta" />
+          <!--B-tables-csdl-ModuloNavigationProperty-->
+        </EntityType>
+        <EntityType Name="Planta">
+          <Key>
+            <PropertyRef Name="PlantaId" />
+          </Key>
+          <Property Name="PlantaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombrePlanta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SemanasCosecha" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Modulo" Relationship="Self.FK_Modulo_Planta" FromRole="Planta" ToRole="Modulo" />
+          <!--B-tables-csdl-PlantaNavigationProperty-->
+
+<!--Code injected by: ControlCuidado-Edmx9-->
+<NavigationProperty Name="VariableCuidado" Relationship="Self.FK_VariableCuidado_Planta" FromRole="Planta" ToRole="VariableCuidado" />
+<!--Code injected by: ControlCuidado-Edmx9-->
+
+
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Permiso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <!--B-tables-csdl-entityType-->
+
+<!--Code injected by: ControlCuidado-Edmx4-->
+<EntityType Name="TipoVariableCuidado">
+          <Key>
+            <PropertyRef Name="TipoVariableCuidadoId" />
+          </Key>
+          <Property Name="TipoVariableCuidadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipoVariableCuidado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="VariableCuidado" Relationship="Self.FK_VariableCuidado_TipoVariableCuidado" FromRole="TipoVariableCuidado" ToRole="VariableCuidado" />
+        </EntityType>
+        <EntityType Name="VariableCuidado">
+          <Key>
+            <PropertyRef Name="VariablesCuidadoId" />
+          </Key>
+          <Property Name="VariablesCuidadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoVariableCuidadoId" Type="Int32" Nullable="false" />
+          <Property Name="ValorCuidado" Type="String" Nullable="false" FixedLength="false" MaxLength="400" Unicode="true" />
+          <Property Name="PlantaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Planta" Relationship="Self.FK_VariableCuidado_Planta" FromRole="VariableCuidado" ToRole="Planta" />
+          <NavigationProperty Name="TipoVariableCuidado" Relationship="Self.FK_VariableCuidado_TipoVariableCuidado" FromRole="VariableCuidado" ToRole="TipoVariableCuidado" />
+        </EntityType>
+<!--Code injected by: ControlCuidado-Edmx4-->
+
+
+        <Association Name="FK_Modulo_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="0..1" />
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="Modulo">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--B-tables-csdl-association-->
+
+<!--Code injected by: ControlCuidado-Edmx5-->
+<Association Name="FK_VariableCuidado_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="1" />
+          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="VariableCuidado">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VariableCuidado_TipoVariableCuidado">
+          <End Role="TipoVariableCuidado" Type="Self.TipoVariableCuidado" Multiplicity="1" />
+          <End Role="VariableCuidado" Type="Self.VariableCuidado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVariableCuidado">
+              <PropertyRef Name="TipoVariableCuidadoId" />
+            </Principal>
+            <Dependent Role="VariableCuidado">
+              <PropertyRef Name="TipoVariableCuidadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+<!--Code injected by: ControlCuidado-Edmx5-->
+
+
+        <EntityContainer Name="AgroAppDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" />
+          <EntitySet Name="Planta" EntityType="Self.Planta" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <!--B-tables-csdl-entitySet-->
+
+<!--Code injected by: ControlCuidado-Edmx6-->
+<EntitySet Name="TipoVariableCuidado" EntityType="Self.TipoVariableCuidado" />
+        <EntitySet Name="VariableCuidado" EntityType="Self.VariableCuidado" />
+<!--Code injected by: ControlCuidado-Edmx6-->
+
+
+          <AssociationSet Name="FK_Modulo_Planta" Association="Self.FK_Modulo_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="Modulo" EntitySet="Modulo" />
+          </AssociationSet>
+          <!--B-tables-csdl-associationSet-->
+
+<!--Code injected by: ControlCuidado-Edmx7-->
+<AssociationSet Name="FK_VariableCuidado_Planta" Association="Self.FK_VariableCuidado_Planta">
+        <End Role="Planta" EntitySet="Planta" />
+        <End Role="VariableCuidado" EntitySet="VariableCuidado" />
+        </AssociationSet>
+        <AssociationSet Name="FK_VariableCuidado_TipoVariableCuidado" Association="Self.FK_VariableCuidado_TipoVariableCuidado">
+        <End Role="TipoVariableCuidado" EntitySet="TipoVariableCuidado" />
+        <End Role="VariableCuidado" EntitySet="VariableCuidado" />
+        </AssociationSet>
+<!--Code injected by: ControlCuidado-Edmx7-->
+
+
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AgroAppDbModelStoreContainer" CdmEntityContainer="AgroAppDbEntities">
+          <EntitySetMapping Name="Modulo">
+            <EntityTypeMapping TypeName="AgroAppDbModel.Modulo">
+              <MappingFragment StoreEntitySet="Modulo">
+                <ScalarProperty Name="ModuloId" ColumnName="ModuloId" />
+                <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+                <ScalarProperty Name="NumeroPlantas" ColumnName="NumeroPlantas" />
+                <ScalarProperty Name="FechaSiembra" ColumnName="FechaSiembra" />
+                <ScalarProperty Name="FechaEstimadaCosecha" ColumnName="FechaEstimadaCosecha" />
+                <ScalarProperty Name="FechaRealCosecha" ColumnName="FechaRealCosecha" />
+                <ScalarProperty Name="SolucionNutricional" ColumnName="SolucionNutricional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Planta">
+            <EntityTypeMapping TypeName="AgroAppDbModel.Planta">
+              <MappingFragment StoreEntitySet="Planta">
+                <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+                <ScalarProperty Name="NombrePlanta" ColumnName="NombrePlanta" />
+                <ScalarProperty Name="SemanasCosecha" ColumnName="SemanasCosecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="AgroAppDbModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Permiso" ColumnName="Permiso" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <!--B-tables-csdl-entitySetMapping-->
+
+<!--Code injected by: ControlCuidado-Edmx8-->
+<EntitySetMapping Name="TipoVariableCuidado">
+            <EntityTypeMapping TypeName="AgroAppDbModel.TipoVariableCuidado">
+              <MappingFragment StoreEntitySet="TipoVariableCuidado">
+                <ScalarProperty Name="TipoVariableCuidadoId" ColumnName="TipoVariableCuidadoId" />
+                <ScalarProperty Name="NombreTipoVariableCuidado" ColumnName="NombreTipoVariableCuidado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VariableCuidado">
+            <EntityTypeMapping TypeName="AgroAppDbModel.VariableCuidado">
+              <MappingFragment StoreEntitySet="VariableCuidado">
+                <ScalarProperty Name="VariablesCuidadoId" ColumnName="VariablesCuidadoId" />
+                <ScalarProperty Name="TipoVariableCuidadoId" ColumnName="TipoVariableCuidadoId" />
+                <ScalarProperty Name="ValorCuidado" ColumnName="ValorCuidado" />
+                <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+<!--Code injected by: ControlCuidado-Edmx8-->
+
+
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

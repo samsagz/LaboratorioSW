@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AgroAppDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="ModuloId" />
+          </Key>
+          <Property Name="ModuloId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlantaId" Type="int" />
+          <Property Name="NumeroPlantas" Type="int" />
+          <Property Name="FechaSiembra" Type="datetime2" Precision="0" />
+          <Property Name="FechaEstimadaCosecha" Type="datetime2" Precision="0" />
+          <Property Name="FechaRealCosecha" Type="datetime2" Precision="0" />
+          <Property Name="SolucionNutricional" Type="float" />
+        </EntityType>
+        <EntityType Name="Planta">
+          <Key>
+            <PropertyRef Name="PlantaId" />
+          </Key>
+          <Property Name="PlantaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombrePlanta" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SemanasCosecha" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Name="UsuarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cedula" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Permiso" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Clave" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--B-tables-entity-type-->
+
+        <Association Name="FK_Modulo_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="0..1" />
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="Modulo">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--B-tables-association-->
+
+        <EntityContainer Name="AgroAppDbModelStoreContainer">
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Planta" EntityType="Self.Planta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <!--B-tables-entitySet-->
+
+          <AssociationSet Name="FK_Modulo_Planta" Association="Self.FK_Modulo_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="Modulo" EntitySet="Modulo" />
+          </AssociationSet>
+          <!--B-tables-associationSet-->
+
+
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AgroAppDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="ModuloId" />
+          </Key>
+          <Property Name="ModuloId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlantaId" Type="Int32" />
+          <Property Name="NumeroPlantas" Type="Int32" />
+          <Property Name="FechaSiembra" Type="DateTime" Precision="0" />
+          <Property Name="FechaEstimadaCosecha" Type="DateTime" Precision="0" />
+          <Property Name="FechaRealCosecha" Type="DateTime" Precision="0" />
+          <Property Name="SolucionNutricional" Type="Double" />
+          <NavigationProperty Name="Planta" Relationship="Self.FK_Modulo_Planta" FromRole="Modulo" ToRole="Planta" />
+          <!--B-tables-csdl-ModuloNavigationProperty-->
+        </EntityType>
+        <EntityType Name="Planta">
+          <Key>
+            <PropertyRef Name="PlantaId" />
+          </Key>
+          <Property Name="PlantaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombrePlanta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SemanasCosecha" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Modulo" Relationship="Self.FK_Modulo_Planta" FromRole="Planta" ToRole="Modulo" />
+          <!--B-tables-csdl-PlantaNavigationProperty-->
+
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Permiso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <!--B-tables-csdl-entityType-->
+
+        <Association Name="FK_Modulo_Planta">
+          <End Role="Planta" Type="Self.Planta" Multiplicity="0..1" />
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planta">
+              <PropertyRef Name="PlantaId" />
+            </Principal>
+            <Dependent Role="Modulo">
+              <PropertyRef Name="PlantaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--B-tables-csdl-association-->
+
+        <EntityContainer Name="AgroAppDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" />
+          <EntitySet Name="Planta" EntityType="Self.Planta" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <!--B-tables-csdl-entitySet-->
+
+          <AssociationSet Name="FK_Modulo_Planta" Association="Self.FK_Modulo_Planta">
+            <End Role="Planta" EntitySet="Planta" />
+            <End Role="Modulo" EntitySet="Modulo" />
+          </AssociationSet>
+          <!--B-tables-csdl-associationSet-->
+
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AgroAppDbModelStoreContainer" CdmEntityContainer="AgroAppDbEntities">
+          <EntitySetMapping Name="Modulo">
+            <EntityTypeMapping TypeName="AgroAppDbModel.Modulo">
+              <MappingFragment StoreEntitySet="Modulo">
+                <ScalarProperty Name="ModuloId" ColumnName="ModuloId" />
+                <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+                <ScalarProperty Name="NumeroPlantas" ColumnName="NumeroPlantas" />
+                <ScalarProperty Name="FechaSiembra" ColumnName="FechaSiembra" />
+                <ScalarProperty Name="FechaEstimadaCosecha" ColumnName="FechaEstimadaCosecha" />
+                <ScalarProperty Name="FechaRealCosecha" ColumnName="FechaRealCosecha" />
+                <ScalarProperty Name="SolucionNutricional" ColumnName="SolucionNutricional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Planta">
+            <EntityTypeMapping TypeName="AgroAppDbModel.Planta">
+              <MappingFragment StoreEntitySet="Planta">
+                <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+                <ScalarProperty Name="NombrePlanta" ColumnName="NombrePlanta" />
+                <ScalarProperty Name="SemanasCosecha" ColumnName="SemanasCosecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="AgroAppDbModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Permiso" ColumnName="Permiso" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <!--B-tables-csdl-entitySetMapping-->
+
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -147,6 +147,18 @@ Fragment ControlAmbiente-Edmx9 {
         [/ALTERCODE-FRAG]
 }
 
+Fragment ControlAmbiente-Edmx91 { 
+   Action: add
+   Priority: high
+   FragmentationPoints: tables-csdl-PlantaNavigationProperty
+   PointBracketsLan: html
+   Destinations: Model-AgroAppModel
+   SourceCode: 
+        [ALTERCODE-FRAG]
+          <NavigationProperty Name="VariablesControl" Relationship="Self.FK_VariablesControl_Planta" FromRole="Planta" ToRole="VariablesControl" />
+        [/ALTERCODE-FRAG]
+}
+
 Fragment ControlAmbiente-Edmx4 { 
    Action: add
    Priority: high

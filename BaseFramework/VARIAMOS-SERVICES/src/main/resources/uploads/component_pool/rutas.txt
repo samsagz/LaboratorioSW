@@ -32,6 +32,8 @@ AgroAppModel.edmx - AgroAppMVC/AgroAppDomain/Model/AgroAppModel.edmx
 AgroAppModel.edmx.diagram - AgroAppMVC/AgroAppDomain/Model/AgroAppModel.edmx.diagram
 
 Dashboard.cs - AgroAppMVC/AgroAppDomain/Dashboard.cs
+Class1.cs - AgroAppMVC/AgroAppDomain/Class1.cs
+
 
 ScriptsDB.sql - DB/ScriptsDB.sql
 Simulador.zip - Simulador/

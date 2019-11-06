@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AgroAppMVC.Models.VariableCuidado>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorCuidado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Planta.NombrePlanta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoVariableCuidado.NombreTipoVariableCuidado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorCuidado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Planta.NombrePlanta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoVariableCuidado.NombreTipoVariableCuidado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VariablesCuidadoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VariablesCuidadoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VariablesCuidadoId })
+        </td>
+    </tr>
+}
+
+</table>

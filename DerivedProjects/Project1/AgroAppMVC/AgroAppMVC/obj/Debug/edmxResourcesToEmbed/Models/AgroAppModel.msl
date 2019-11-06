@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AgroAppModelStoreContainer" CdmEntityContainer="AgroAppEntities">
+    <EntitySetMapping Name="Modulo">
+      <EntityTypeMapping TypeName="AgroAppModel.Modulo">
+        <MappingFragment StoreEntitySet="Modulo">
+          <ScalarProperty Name="ModuloId" ColumnName="ModuloId" />
+          <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+          <ScalarProperty Name="NumeroPlantas" ColumnName="NumeroPlantas" />
+          <ScalarProperty Name="FechaSiembra" ColumnName="FechaSiembra" />
+          <ScalarProperty Name="VariablesAmbienteId" ColumnName="VariablesAmbienteId" />
+          <ScalarProperty Name="FechaEstimadaCosecha" ColumnName="FechaEstimadaCosecha" />
+          <ScalarProperty Name="FechaRealCosecha" ColumnName="FechaRealCosecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Planta">
+      <EntityTypeMapping TypeName="AgroAppModel.Planta">
+        <MappingFragment StoreEntitySet="Planta">
+          <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+          <ScalarProperty Name="NombrePlanta" ColumnName="NombrePlanta" />
+          <ScalarProperty Name="SemanasCosecha" ColumnName="SemanasCosecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoVariableAmbiente">
+      <EntityTypeMapping TypeName="AgroAppModel.TipoVariableAmbiente">
+        <MappingFragment StoreEntitySet="TipoVariableAmbiente">
+          <ScalarProperty Name="TipoVariableAmbienteId" ColumnName="TipoVariableAmbienteId" />
+          <ScalarProperty Name="NombreTipoVariableAmbiente" ColumnName="NombreTipoVariableAmbiente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="AgroAppModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="Permiso" ColumnName="Permiso" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VariableAmbiente">
+      <EntityTypeMapping TypeName="AgroAppModel.VariableAmbiente">
+        <MappingFragment StoreEntitySet="VariableAmbiente">
+          <ScalarProperty Name="VariableAmbienteId" ColumnName="VariableAmbienteId" />
+          <ScalarProperty Name="ModuloId" ColumnName="ModuloId" />
+          <ScalarProperty Name="TipoVariableAmbienteId" ColumnName="TipoVariableAmbienteId" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="TimeTag" ColumnName="TimeTag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VariablesControl">
+      <EntityTypeMapping TypeName="AgroAppModel.VariablesControl">
+        <MappingFragment StoreEntitySet="VariablesControl">
+          <ScalarProperty Name="VariableControlId" ColumnName="VariableControlId" />
+          <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+          <ScalarProperty Name="TipoVariableAmbienteId" ColumnName="TipoVariableAmbienteId" />
+          <ScalarProperty Name="VariableControl" ColumnName="VariableControl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoVariableCuidado">
+      <EntityTypeMapping TypeName="AgroAppModel.TipoVariableCuidado">
+        <MappingFragment StoreEntitySet="TipoVariableCuidado">
+          <ScalarProperty Name="NombreTipoVariableCuidado" ColumnName="NombreTipoVariableCuidado" />
+          <ScalarProperty Name="TipoVariableCuidadoId" ColumnName="TipoVariableCuidadoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VariableCuidado">
+      <EntityTypeMapping TypeName="AgroAppModel.VariableCuidado">
+        <MappingFragment StoreEntitySet="VariableCuidado">
+          <ScalarProperty Name="PlantaId" ColumnName="PlantaId" />
+          <ScalarProperty Name="ValorCuidado" ColumnName="ValorCuidado" />
+          <ScalarProperty Name="TipoVariableCuidadoId" ColumnName="TipoVariableCuidadoId" />
+          <ScalarProperty Name="VariablesCuidadoId" ColumnName="VariablesCuidadoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<AgroAppMVC.Models.Modulo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroPlantas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaSiembra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VariablesAmbienteId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaEstimadaCosecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRealCosecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SolucionNutricional)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Planta.NombrePlanta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroPlantas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaSiembra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VariablesAmbienteId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaEstimadaCosecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaRealCosecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SolucionNutricional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Planta.NombrePlanta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ModuloId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ModuloId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ModuloId })
+        </td>
+    </tr>
+}
+
+</table>

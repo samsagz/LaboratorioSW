@@ -1,0 +1,81 @@
+﻿@model AgroAppMVC.Models.Modulo
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Modulo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroPlantas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroPlantas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaSiembra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaSiembra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VariablesAmbienteId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VariablesAmbienteId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaEstimadaCosecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaEstimadaCosecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaRealCosecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRealCosecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SolucionNutricional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SolucionNutricional)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Planta.NombrePlanta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Planta.NombrePlanta)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

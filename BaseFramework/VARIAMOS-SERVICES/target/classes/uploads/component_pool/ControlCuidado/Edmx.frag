@@ -73,7 +73,7 @@ Fragment ControlCuidado-Edmx3 {
         [/ALTERCODE-FRAG]
 }
 
-Fragment ControlAmbiente-Edmx31 { 
+Fragment ControlCuidado-Edmx31 { 
    Action: add
    Priority: high
    FragmentationPoints: tables-associationSet
@@ -92,7 +92,7 @@ Fragment ControlAmbiente-Edmx31 {
         [/ALTERCODE-FRAG]
 }
 
-Fragment ControlAmbiente-Edmx9 { 
+Fragment ControlCuidado-Edmx9 { 
    Action: add
    Priority: high
    FragmentationPoints: tables-csdl-PlantaNavigationProperty
@@ -101,7 +101,6 @@ Fragment ControlAmbiente-Edmx9 {
    SourceCode: 
         [ALTERCODE-FRAG]
         <NavigationProperty Name="VariableCuidado" Relationship="Self.FK_VariableCuidado_Planta" FromRole="Planta" ToRole="VariableCuidado" />
-        <NavigationProperty Name="VariablesControl" Relationship="Self.FK_VariablesControl_Planta" FromRole="Planta" ToRole="VariablesControl" />
         [/ALTERCODE-FRAG]
 }
 

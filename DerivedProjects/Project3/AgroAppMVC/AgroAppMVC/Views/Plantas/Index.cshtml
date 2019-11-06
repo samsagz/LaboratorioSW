@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AgroAppMVC.Models.Planta>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombrePlanta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SemanasCosecha)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombrePlanta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SemanasCosecha)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PlantaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PlantaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PlantaId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,15 @@
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\bin\ServiciosGranja.dll.config
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\bin\ServiciosGranja.dll
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\bin\ServiciosGranja.pdb
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\obj\Debug\ServiciosGranja.csprojAssemblyReference.cache
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\obj\Debug\ServiciosGranja.csproj.CoreCompileInputs.cache
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\obj\Debug\ServiciosGranja.dll
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\obj\Debug\ServiciosGranja.pdb
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\bin\AgroAppDomain.dll
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\bin\EntityFramework.dll
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\bin\EntityFramework.SqlServer.dll
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\bin\AgroAppDomain.pdb
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\bin\AgroAppDomain.dll.config
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\bin\EntityFramework.xml
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\bin\EntityFramework.SqlServer.xml
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\ServiciosGranja\obj\Debug\ServiciosGranja.csproj.CopyComplete

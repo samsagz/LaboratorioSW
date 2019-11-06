@@ -1,0 +1,6 @@
+{ 
+    "IDs": ["Dashboard-Index", "Dashboard-Index", "Dashboard-About", "Dashboard-Contact", "Dashboard-SiteCss"],
+    "CustomizationPoints": ["jumbotron","index-content", "about-content", "contact-content", "site-css"],
+    "PointBracketsLans": ["html", "html", "html", "html", "java"]
+ }
+ 

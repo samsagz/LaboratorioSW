@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="AgroAppDbEntities-Web.config Connection String" description="AgroAppDbEntities Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/Model.AgroAppModel.csdl|res://*/Model.AgroAppModel.ssdl|res://*/Model.AgroAppModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=agroappserver.database.windows.net;initial catalog=AgroAppDb;user id=agroapp;password=Crea2019*;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\@Git\\LaboratorioSW\\BaseFramework\\AgroAppMVC\\ServiciosGranja\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AgroAppDbEntities']/@connectionString" />
+  </parameter>
+</parameters>

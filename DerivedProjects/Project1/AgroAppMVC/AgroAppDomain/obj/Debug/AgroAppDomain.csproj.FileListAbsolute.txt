@@ -1,0 +1,11 @@
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppDomain\bin\Debug\AgroAppDomain.dll.config
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppDomain\bin\Debug\AgroAppDomain.dll
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppDomain\bin\Debug\AgroAppDomain.pdb
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppDomain\bin\Debug\EntityFramework.dll
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppDomain\bin\Debug\EntityFramework.SqlServer.dll
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppDomain\bin\Debug\EntityFramework.xml
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppDomain\bin\Debug\EntityFramework.SqlServer.xml
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppDomain\obj\Debug\AgroAppDomain.csproj.CoreCompileInputs.cache
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppDomain\obj\Debug\AgroAppDomain.csproj.CopyComplete
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppDomain\obj\Debug\AgroAppDomain.dll
+D:\@Git\LaboratorioSW\BaseFramework\AgroAppMVC\AgroAppDomain\obj\Debug\AgroAppDomain.pdb

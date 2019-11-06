@@ -1,0 +1,1 @@
+- DerivedProjects/Images/ dentro de este directorio suba pantallazos de la página principal de cada proyecto derivado.
