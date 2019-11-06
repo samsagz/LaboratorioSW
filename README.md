@@ -10,7 +10,7 @@ Proyecto de la materia Laboratorio de Software
 - John Faber Florez
 - Jose Fernando Herrera
 
-# 1º Entregable
+# Entregable
 
 ## Arquitectura
 
