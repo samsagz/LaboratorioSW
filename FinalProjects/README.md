@@ -1,0 +1,1 @@
+- FinalProjects/readme.md cree un archivo donde explique cuales son los pasos para poder ejecutar los proyectos finales. Ejemplo: paso 1 cree un nuevo proyecto tipo MVC en Eclipse, paso 2 copie la carpeta Project1, al directorio SRC/, paso 3 ejecute el proyecto con Apache Tomcat, y paso 4, acceda a la ruta localhost/project1.
