@@ -1,0 +1,1 @@
+- DerivedProjects/Project2/ dentro de este directorio suba los archivos del proyecto 2 derivado automáticamente por VariaMos y luego customizados.
