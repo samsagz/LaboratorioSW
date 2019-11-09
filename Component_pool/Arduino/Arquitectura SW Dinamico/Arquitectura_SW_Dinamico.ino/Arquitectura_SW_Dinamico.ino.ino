@@ -9,6 +9,7 @@ DHT dht(DHTPIN, DHTTYPE);
 #define Sensor A0
 #define VEN_OUTPUT 2 
 #define LUZ_OUTPUT 9
+#define LED_OUTPUT 43
 
 double valorTemperatura, temperaturaEsperada=30;
 double salidaPWM, salidaPWMVen=0;
@@ -32,6 +33,7 @@ double salidaLuz=255;
 
 void setup (){  
   Serial.begin(115200);
+  pinMode(LED_OUTPUT , OUTPUT);
   TCCR2B = TCCR2B & 0b000 | 0x07;
   error=0;
   errorPrevio=0;
@@ -89,7 +91,9 @@ void calcularPID(){
   salidaLuz = salidaLuz-(salida-255);
   if(salida >=255){
     salida=255;
+    controlarLed(1);
   }else{
+    controlarLed(0);
     if(salida <=60){
       salida =60;
     }
@@ -113,8 +117,8 @@ void loop(){
        calcularPID();
        prenderApagar();
        //exportarDatos();
-       //pintarDatos();
-       pintarGrafica();       
+       pintarDatos();
+       //pintarGrafica();       
       ultimoTiempo = now;      
    }   
 }
@@ -166,4 +170,12 @@ void controlarVentilador(int salida2){
 
 void controlarLuz(int salida2){
   analogWrite(LUZ_OUTPUT, salida2);
+}
+
+void controlarLed(int var){
+  if(var==1){
+    digitalWrite(LED_OUTPUT , HIGH);
+  }else{
+    digitalWrite(LED_OUTPUT , LOW);
+  }
 }
