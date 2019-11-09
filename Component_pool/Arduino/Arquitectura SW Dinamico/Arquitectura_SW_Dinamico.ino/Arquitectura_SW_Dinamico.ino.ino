@@ -10,8 +10,8 @@ DHT dht(DHTPIN, DHTTYPE);
 #define VEN_OUTPUT 2 
 #define LUZ_OUTPUT 9
 
-double valorTemperatura, temperaturaEsperada=33, salidaPWM;
-double salidaPWMVen=0;
+double valorTemperatura, temperaturaEsperada=30;
+double salidaPWM, salidaPWMVen=0;
 unsigned long tiempoActual =0, tiempoPrevio=0;
 double tiempoTranscurrido=0;
 
@@ -19,9 +19,9 @@ double error=0;
 double errorPrevio=0;
 double errorAcu=0, cambError=0;
 
-float kp=3.7734;
-float ki=0.000001;
-float kd=15;
+float kp=4.2734;
+float ki=0.0000005;
+float kd=8;
 
 int tiempo=1000;
 double ultimoTiempo;
